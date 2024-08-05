@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { CircleArrowRight,CircleArrowLeft } from 'lucide-react'
+import { CircleArrowRight, CircleArrowLeft } from 'lucide-react'
 import React from 'react'
 
 const Card = () => {
@@ -42,12 +42,12 @@ const Card = () => {
       </div>
 
       <div className="flex flex-col justify-start col-span-4 p-5 animate-fadeInRight">
-        <h2 className="text-xl font-bold text-black">Today's Design, Tomorrow's Reality</h2>
+        <h2 className="text-xl font-bold text-black">Today&apos;s Design, Tomorrow&apos;s Reality</h2>
         <p className="text-lg font-light leading-relaxed text-black">
           One-stop shop for interiors, furniture, and technology. Be it a residential space or a commercial space. We have your back from start to finish.
         </p>
         <div className="flex justify-center mt-8 gap-4">
-        <Link href="/offerings" className="text-3xl flex-row flex gap-2 justify-center items-center text-primary">
+          <Link href="/offerings" className="text-3xl flex-row flex gap-2 justify-center items-center text-primary">
             <CircleArrowLeft size={33} />
             <span>Offerings</span>
           </Link>

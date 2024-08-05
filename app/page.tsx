@@ -21,7 +21,7 @@ const page = () => {
 
           <div className='flex flex-col self-start ml-8 mt-20 animate-fadeInRight'>
             <div className="font-bold text-lg mb-8">
-              Today's Design, Tomorrow's Reality
+              Today&apos;s Design, Tomorrow&apos;s Reality
             </div>
             <div className="font-light text-lg text-justify">
               One-stop shop for interiors, furniture and technology.<br /> Be it a residential space or a commercial space. We have your back from<br /> start to finish.
