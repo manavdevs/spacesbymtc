@@ -27,7 +27,7 @@ const page = () => {
             {isVideoPlaying ? (
                 <VideoSplashScreen onVideoEnd={handleVideoEnd} />
             ) : (
-                <div className=' animate-fadeIn 1s ease-in-out'>
+                <div>
                     <Navbar />
                     <Hero />
                     <Offerings/>

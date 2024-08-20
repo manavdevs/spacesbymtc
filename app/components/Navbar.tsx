@@ -47,7 +47,7 @@ const Navbar = () => {
                     </button>
 
                     {showDropdown && (
-                        <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-2 z-10">
+                        <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-2 z-20">
                             <ul className='text-black'>
                                 <li className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100">
                                     <FaSquareFacebook size={20} /> <a href="https://www.facebook.com/share/shkeozDiUdRjJzsy/?mibextid=qi2Omg" target="_blank" rel="noopener noreferrer">Facebook</a>
@@ -69,13 +69,12 @@ const Navbar = () => {
 
             {/* Mobile Menu */}
             {toggleMenu && (
-                <div className="fixed top-16 left-0 w-full bg-white bg-opacity-90 backdrop-blur-md shadow-lg z-10 p-5 md:hidden animate-fadeInDown">
+                <div className="fixed top-16 left-0 w-full bg-white bg-opacity-90 backdrop-blur-md shadow-lg z-20 p-5 md:hidden animate-fadeInDown">
                     <ul className='flex flex-col gap-5 text-black'>
                         <li><a href="#home">Home</a></li>
                         <li><a href="#offerings">Offerings</a></li>
                         <li><a href="#portfolio">Portfolio</a></li>
                         <li><a href="#testimonials">Testimonials</a></li>
-                        <li><a href="#contactus">Contact Us</a></li>
                     </ul>
                 </div>
             )}
