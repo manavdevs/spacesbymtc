@@ -42,7 +42,7 @@ const Offerings: React.FC = () => {
                     Check out our various Offerings
                 </h1>
                 <p className="text-md text-white md:text-xl mb-10">
-                    We cover everything from Residential Houses, to Commercial Offices<br />
+                    We cover everything from Residential Houses to Commercial Offices<br />
                     with customized Smart Home devices and Bespoke Furniture.
                 </p>
             </div>
