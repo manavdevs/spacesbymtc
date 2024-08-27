@@ -42,7 +42,7 @@ const Offerings: React.FC = () => {
                     Check out our various Offerings
                 </h1>
                 <p className="text-md text-white md:text-xl mb-10">
-                    We cover everything from Residential Houses to Commercial Offices<br />
+                    We cover everything from Residential Houses, to Commercial Offices<br />
                     with customized Smart Home devices and Bespoke Furniture.
                 </p>
             </div>
@@ -53,12 +53,12 @@ const Offerings: React.FC = () => {
                     { 
                         title: 'Residential Spaces', 
                         image: '/images/residential.jpg', 
-                        description: 'We specialize in designing stylish and functional living spaces, from luxurious villas and modern flats to cozy independent houses. Our designs seamlessly blend comfort with aesthetics to create homes you’ll love.' 
+                        description: 'We specialize in designing stylish and functional living spaces, from luxurious villas and modern flats to cozy independent houses.' 
                     },
                     { 
                         title: 'Commercial Spaces', 
                         image: '/images/commercial.jpg', 
-                        description: 'Enhance your workplace with our expert commercial design solutions. From ergonomic office spaces to tailored furniture, we craft environments that boost productivity and reflect your brand\'s identity.' 
+                        description: 'Enhance your workplace with our expert commercial design solutions. From ergonomic office spaces to tailored furniture.' 
                     },
                     { 
                         title: 'Smart Home Solutions', 
@@ -71,11 +71,17 @@ const Offerings: React.FC = () => {
                         description: 'Our customized furniture solutions are tailored to fit your unique style and needs. We focus on high-quality craftsmanship to deliver pieces that elevate your space and bring your vision to life.' 
                     }
                 ].map((card, index) => (
-                    <div key={index} className="relative w-full h-72 perspective p-4"> {/* Consistent height */}
+                    <div 
+                        key={index} 
+                        className={`relative w-full h-72 perspective p-4 transform transition-transform duration-1000 ease-in-out ${
+                            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
+                        }`}
+                        style={{ transitionDelay: `${index * 100}ms` }} // Adding delay for staggered animation
+                    > 
                         <div className={`relative w-full h-full transition-transform duration-1000 transform-style preserve-3d ${flippedIndex === index ? 'rotate-y-180' : ''}`}>
                             {/* Front of the card (Image and Title) */}
                             <div className={`absolute inset-0 z-10 flex flex-col items-center justify-between bg-white bg-opacity-50 backdrop-blur-md p-5 rounded-lg shadow-lg ${flippedIndex === index ? 'opacity-0 pointer-events-none' : 'opacity-100'} transition-opacity duration-500`}>
-                                <img src={card.image} alt={card.title} className="w-full h-40 object-cover rounded-lg mb-3" /> {/* Same image size */}
+                                <img src={card.image} alt={card.title} className="w-full h-40 object-cover rounded-lg mb-3" />
                                 <h2 className="text-xl text-white">{card.title}</h2>
                                 <button
                                     onClick={() => handleFlip(index)}
@@ -85,14 +91,17 @@ const Offerings: React.FC = () => {
                                 </button>
                             </div>
                             {/* Back of the card (Description and Button) */}
-                            <div className={`absolute inset-0 z-20 bg-white bg-opacity-50 backdrop-blur-md p-5 rounded-lg shadow-lg transform rotate-y-180 flex flex-col items-center justify-center ${flippedIndex === index ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} transition-opacity duration-500`}>
+                            <div 
+                                className={`absolute inset-0 z-20 bg-white bg-opacity-50 backdrop-blur-md p-5 rounded-lg shadow-lg transform rotate-y-180 flex flex-col items-center justify-center ${flippedIndex === index ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} transition-opacity duration-500`}
+                                onClick={() => handleFlip(index)} // Flip back on click anywhere on the back
+                            >
                                 <p className="text-white text-center mb-5">{card.description}</p>
                                 <a href="/projects">
-                                <button
-                                    className="bg-blue-500 text-white px-4 py-2 rounded-lg w-full"
-                                >
-                                    See Projects
-                                </button>
+                                    <button
+                                        className="bg-blue-500 text-white px-4 py-2 rounded-lg w-full"
+                                    >
+                                        See Projects
+                                    </button>
                                 </a>
                             </div>
                         </div>
