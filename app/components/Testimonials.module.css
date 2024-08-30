@@ -1,0 +1,53 @@
+.testimonialsContainer {
+    gap: 80px;
+    overflow: hidden;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .testimonialsTrack {
+    display: flex;
+    animation: scroll 20s linear infinite;
+  }
+  
+  .testimonialCard {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 0; /* Remove gaps */
+    flex: 0 0 auto; /* Ensure no stretching */
+    width: 300px; /* Adjust width as needed */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .testimonialCard:hover {
+    transform: scale(1.05);
+  }
+  
+  .iconPlaceholder {
+    width: 50px;
+    height: 50px;
+    background-color: #d8d8d8;
+    border-radius: 50%;
+    margin: 10px auto;
+  }
+  
+  .rating {
+    color: #ff5a5f;
+    font-size: 20px;
+    margin-top: 10px;
+  }
+  
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-100% / 3)); /* Adjust based on the number of testimonials */
+    }
+  }
+  

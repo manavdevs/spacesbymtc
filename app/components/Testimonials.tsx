@@ -1,25 +1,26 @@
 "use client";
 import React, { useEffect, useRef, useState } from 'react';
+import styles from './Testimonials.module.css';
 
 const Testimonials = () => {
     const testimonials = [
         {
-            name: "Amit Kumar, New Delhi",
-            image: "/images/delhi.png",
-            text: "I couldn't be happier with how the team at Spaces contributed to shaping our office space. Their commitment to incorporating natural light and green elements has created a workspace that feels energizing and conducive to creativity.",
-            tint: 'bg-blue-400',
+          name: 'Durga Rao',
+          role: 'Swish Living Customer',
+          feedback: 'I just love their design for all stunning details. You must know what can you do for a project before taking it, but with swish living, the sky is the limit.',
+          rating: 3
         },
         {
-            name: "Rajesh and Priya Gupta, Mumbai",
-            image: "/images/mumbai.png",
-            text: "We are delighted with the transformation of our home by Manjusha. Her blend of traditional Indian aesthetics with futuristic design elements created a space that feels both culturally rich and refreshingly modern. A big Kudos!",
-            tint: 'bg-yellow-400',
+          name: 'Marin',
+          role: 'Swish Living Customer',
+          feedback: 'I just love their design for all stunning details. You must know what can you do for a project before taking it, but with swish living, the sky is the limit.',
+          rating: 3
         },
         {
-            name: "Ananya and Arjun, Bengaluru",
-            image: "/images/bangalore.png",
-            text: "The team at MTC Space, led by Kanika, understood our desire for a home that reflects our love for nature. Their eco-friendly approach and use of natural materials have made our living space not only beautiful but also sustainable. Hats off to their work and I would highly recommend this to everyone around!",
-            tint: 'bg-green-400',
+          name: 'Akthar',
+          role: 'Swish Living Customer',
+          feedback: 'I just love their design for all stunning details. You must know what can you do for a project before taking it, but with swish living, the sky is the limit.',
+          rating: 3
         },
     ];
 
@@ -70,25 +71,21 @@ const Testimonials = () => {
                 </p>
             </div>
 
-            {/* Testimonials Grid */}
-            <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full px-10">
-                {testimonials.map((testimonial, index) => (
-                    <div
-                        key={index}
-                        className={`relative testimonial-card flex flex-col items-center p-8 rounded-lg shadow-lg text-center transition ease-in-out duration-1000 transform ${
-                            isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
-                        }`}
-                        style={{ transitionDelay: `${index * 400}ms` }} // Adds a 400ms delay for each card
-                    >
-                        {/* Static Blur with tint overlay */}
-                        <div className={`absolute inset-0 ${testimonial.tint} bg-opacity-30 backdrop-blur-md rounded-lg`}></div>
-                        <div className="relative z-10">
-                            <img src={testimonial.image} alt={testimonial.name} className="w-24 h-24 object-cover rounded-full mb-4 border-4 border-white shadow-lg" />
-                            <h2 className="text-xl text-white mb-2">{testimonial.name}</h2>
-                            <p className="text-white">{testimonial.text}</p>
+            <div className={styles.testimonialsContainer}>
+                <div className={styles.testimonialsTrack}>
+                    {testimonials.concat(testimonials).map((testimonial, index) => (
+                        <div className={styles.testimonialCard} key={index}>
+                            <h3>{testimonial.name}</h3>
+                            <p>{testimonial.role}</p>
+                            <div className={styles.iconPlaceholder}></div>
+                            <p>{testimonial.feedback}</p>
+                            <div className={styles.rating}>
+                              {'★'.repeat(testimonial.rating)}
+                              {'☆'.repeat(5 - testimonial.rating)}
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
         </section>
     );
