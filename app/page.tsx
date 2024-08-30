@@ -28,7 +28,7 @@ const Page = () => {
           <Offerings />
           <Portfolio />
           <Testimonials />
-          <SignupFormDemo />
+          <SignupFormDemo /> {/* The form is now toggled by a floating icon */}
           <Footer />
         </div>
       )}
