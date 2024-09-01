@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 type InfiniteMovingCardsProps = {
   items: { image: string }[];
@@ -18,8 +18,8 @@ const InfiniteMovingCards = ({
   pauseOnHover = true,
   className,
 }: InfiniteMovingCardsProps) => {
-  const containerRef = React.useRef<HTMLDivElement>(null);
-  const scrollerRef = React.useRef<HTMLUListElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const scrollerRef = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
     addAnimation();
@@ -46,29 +46,19 @@ const InfiniteMovingCards = ({
 
   const getDirection = () => {
     if (containerRef.current) {
-      if (direction === "left") {
-        containerRef.current.style.setProperty(
-          "--animation-direction",
-          "forwards"
-        );
-      } else {
-        containerRef.current.style.setProperty(
-          "--animation-direction",
-          "reverse"
-        );
-      }
+      containerRef.current.style.setProperty(
+        "--animation-direction",
+        direction === "left" ? "forwards" : "reverse"
+      );
     }
   };
 
   const getSpeed = () => {
     if (containerRef.current) {
-      if (speed === "fast") {
-        containerRef.current.style.setProperty("--animation-duration", "20s");
-      } else if (speed === "normal") {
-        containerRef.current.style.setProperty("--animation-duration", "40s");
-      } else {
-        containerRef.current.style.setProperty("--animation-duration", "80s");
-      }
+      containerRef.current.style.setProperty(
+        "--animation-duration",
+        speed === "fast" ? "20s" : speed === "normal" ? "40s" : "80s"
+      );
     }
   };
 
@@ -76,7 +66,7 @@ const InfiniteMovingCards = ({
     <div
       ref={containerRef}
       className={cn(
-        "scroller relative z-20 max-w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
+        "relative z-20 max-w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
         className
       )}
     >
@@ -90,10 +80,8 @@ const InfiniteMovingCards = ({
       >
         {items.map((item, idx) => (
           <li
-            className="w-[150px] max-w-full relative rounded-2xl border border-b-0 flex-shrink-0 border-[#98B82C] px-4 py-4 flex items-center justify-center"
-            style={{
-              background: "#98B82C",
-            }}
+            className="w-[150px] max-w-full relative rounded-2xl border border-b-0 flex-shrink-0 border-[white] px-4 py-4 flex items-center justify-center"
+            style={{ background: "white" }}
             key={idx}
           >
             <img src={item.image} alt={`Image ${idx}`} className="w-full h-auto object-cover" />

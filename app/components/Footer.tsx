@@ -26,23 +26,23 @@ const Footer = () => {
               </ul>
             </div>
 
+            {/* Address Section */}
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Visit Us</h2>
+              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Experience Center</h2>
               <ul className="text-gray-500 dark:text-gray-400 font-medium">
                 <li className="mb-4">
-                  <a href="https://www.instagram.com/spacesbymtc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" className="hover:underline">Instagram</a>
-                </li>
-                <li className="mb-4">
-                  <a href="https://www.facebook.com/share/shkeozDiUdRjJzsy/?mibextid=qi2Omg" className="hover:underline">Facebook</a>
-                </li>
-                <li className="mb-4">
-                  <a href="https://www.linkedin.com/company/spacesbymtc/" className="hover:underline">LinkedIn</a>
-                </li>
-                <li className="mb-4">
-                  <a href="https://x.com/SpacesByMTC" className="hover:underline">Twitter</a>
+                  <p>Spaces by MTC-1st floor,<br />
+                    Golden Mile Rd,<br />
+                    Kokapet,<br />
+                    Hyderabad,<br />
+                    Telangana 500075
+                  </p>
                 </li>
               </ul>
             </div>
+
+
+            
 
             {/* Address Section */}
             <div>

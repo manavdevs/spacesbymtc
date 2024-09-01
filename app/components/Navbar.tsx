@@ -17,7 +17,7 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className="fixed top-0 left-0 w-full flex justify-between items-center p-5 bg-white bg-opacity-30 backdrop-blur-md shadow-lg z-20">
+            <nav className="fixed top-0 left-0 w-full flex justify-between items-center p-5 bg-black bg-opacity-30 backdrop-blur-md shadow-lg z-20">
                 {/* Logo with controlled size */}
                 <div className='text-white'>
                     <img src="/images/logonobg.png" alt="logo" className="h-10 w-auto" />
