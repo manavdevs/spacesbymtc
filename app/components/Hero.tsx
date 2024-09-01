@@ -2,13 +2,10 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { motion, easeIn, easeInOut } from 'framer-motion';
 
 const Hero = () => {
-  const [showText, setShowText] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
-  const [animateText, setAnimateText] = useState(false);
 
   const slides = [
     { 
@@ -49,10 +46,6 @@ const Hero = () => {
   ];
 
   useEffect(() => {
-    setShowText(true);
-  }, []);
-
-  useEffect(() => {
     const handleResize = () => {
       setIsSmallScreen(window.innerWidth <= 640); // Adjust breakpoint as needed
     };
@@ -67,112 +60,88 @@ const Hero = () => {
 
   const goToNextSlide = () => {
     setActiveIndex((prevIndex) => (prevIndex + 1) % slides.length);
-    setAnimateText(true);
   };
 
   const goToPrevSlide = () => {
     setActiveIndex((prevIndex) =>
       prevIndex === 0 ? slides.length - 1 : prevIndex - 1
     );
-    setAnimateText(true);
-  };
-
-  useEffect(() => {
-    if (animateText) {
-      const timer = setTimeout(() => {
-        setAnimateText(false);
-      }, 1000); // Duration of the text animation
-
-      return () => clearTimeout(timer);
-    }
-  }, [animateText]);
-
-  const textVariants = {
-    hidden: { opacity: 1, y: 20 },
-    visible: { opacity: 1, y: 0 },
   };
 
   return (  
-
+    <div
+      id="home"
+      className="relative w-full h-[100vh] flex items-center justify-center overflow-hidden"
+    >
       <div
-        id="home"
-        className="relative w-full h-[800px] flex items-center justify-center -mt-[80px] overflow-hidden"
+        className="relative w-full h-full flex transition-transform duration-700 ease-in-out"
+        style={{ transform: `translateX(-${activeIndex * 100}%)` }}
       >
-        <motion.div
-          className="relative w-full h-full flex"
-          key={activeIndex} // Ensure this div re-renders on slide change
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, ease: easeInOut }}
-          style={{ transform: `translateX(-${activeIndex * 100}%)` }}
-        >
-          {slides.map((slide, index) => (
-            <div key={index} className="w-full flex-shrink-0 h-full relative">
-              <Link href={slide.href}>
-                <img
-                  src={isSmallScreen ? slide.srcSmall : slide.srcLarge}
-                  className="w-full h-full object-fill filter brightness-50"
-                  alt={`Slide ${index + 1}`}
-                />
-              </Link>
+        {slides.map((slide, index) => (
+          <div key={index} className="w-full flex-shrink-0 h-full relative">
+            <Link href={slide.href}>
+              <img
+                src={isSmallScreen ? slide.srcSmall : slide.srcLarge}
+                className="w-full h-full object-fill filter brightness-50"
+                alt={`Slide ${index + 1}`}
+              />
+            </Link>
 
-              {/* Text overlay for mobile screens */}
-              {isSmallScreen && (
-                <motion.div 
-                  className="absolute inset-0 flex items-center justify-center text-center z-20"
-                  variants={textVariants}
-                  initial="hidden"
-                  animate={animateText ? "visible" : "hidden"}
-                  transition={{ duration: 1, ease: easeInOut }}
-                >
-                  <div>
-                    <h2 className="text-2xl font-bold text-white mb-2" style={{ textShadow: '2px 2px 4px #000000' }}>
-                      {slide.title}
-                    </h2>
-                    <p className="text-lg text-white px-4 py-2" style={{ textShadow: '2px 2px 4px #000000' }}>
-                      {slide.description}
-                    </p>
-                  </div>
-                </motion.div>
-              )}
-
-              {/* Text overlay for large screens */}
-              {!isSmallScreen && (
-                <motion.div
-                  className="absolute left-20 inset-y-0 flex flex-col justify-center pl-2 pr-10 text-white z-20"
-                  variants={textVariants}
-                  initial="hidden"
-                  animate={animateText ? "visible" : "hidden"}
-                  transition={{ duration: 1, ease: easeIn }}
-                >
-                  <h2 className="text-6xl font-bold mb-4" style={{ textShadow: '2px 2px 4px #000000' }}>
+            {/* Text overlay for mobile screens */}
+            {isSmallScreen && (
+              <div className="absolute inset-0 flex items-center justify-center text-center z-20 px-4">
+                <div>
+                  <h2
+                    className={`text-2xl font-bold text-white mb-2`}
+                    
+                  >
                     {slide.title}
                   </h2>
-                  <p className="text-2xl" style={{ textShadow: '2px 2px 4px #000000' }}>
+                  <p
+                    className={`text-lg text-white px-4 py-2`}
+                    
+                  >
                     {slide.description}
                   </p>
-                </motion.div>
-              )}
-            </div>
-          ))}
-        </motion.div>
+                </div>
+              </div>
+            )}
 
-        {/* Slider controls */}
-        <button
-          type="button"
-          className="absolute bottom-16 right-[80px] transform -translate-y-1/2 z-30 flex items-center justify-center h-10 w-10 text-white hover:text-amber-400 lg:text-white transition-all cursor-pointer"
-          onClick={goToPrevSlide}
-        >
-          <span className="text-6xl font-light">&#x2190;</span>
-        </button>
-        <button
-          type="button"
-          className="absolute bottom-16 right-3 transform -translate-y-1/2 z-30 flex items-center justify-center h-10 w-10 text-white hover:text-amber-400 lg:text-white transition-all cursor-pointer"
-          onClick={goToNextSlide}
-        >
-          <span className="text-6xl font-light">&#x2192;</span>
-        </button>
+            {/* Text overlay for large screens */}
+            {!isSmallScreen && (
+              <div className="absolute left-20 inset-y-0 flex flex-col justify-center text-white z-20 px-4">
+                <h2
+                  className={`text-6xl font-bold mb-4`}
+                >
+                  {slide.title}
+                </h2>
+                <p
+                  className={`text-2xl`}
+                >
+                  {slide.description}
+                </p>
+              </div>
+            )}
+          </div>
+        ))}
       </div>
+
+      {/* Slider controls */}
+      <button
+        type="button"
+        className="absolute bottom-16 left-[100px] lg:left-[200px] z-10 flex items-center justify-center h-10 w-10 text-white hover:text-amber-400 lg:text-white transition-all cursor-pointer"
+        onClick={goToPrevSlide}
+      >
+        <span className="text-6xl font-light">&#x2190;</span>
+      </button>
+      <button
+        type="button"
+        className="absolute bottom-16 right-[100px] lg:right-[200px] z-10 flex items-center justify-center h-10 w-10 text-white hover:text-amber-400 lg:text-white transition-all cursor-pointer"
+        onClick={goToNextSlide}
+      >
+        <span className="text-6xl font-light">&#x2192;</span>
+      </button>
+    </div>
   );
 };
 

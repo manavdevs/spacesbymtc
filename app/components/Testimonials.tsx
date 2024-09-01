@@ -1,87 +1,89 @@
 "use client";
-import React, { useEffect, useRef, useState } from 'react';
-import styles from './Testimonials.module.css';
+import React, { useEffect } from 'react';
 
 const Testimonials = () => {
     const testimonials = [
         {
-          name: 'Durga Rao',
-          role: 'Swish Living Customer',
-          feedback: 'I just love their design for all stunning details. You must know what can you do for a project before taking it, but with swish living, the sky is the limit.',
-          rating: 3
+            name: 'Aditi S., Mumbai',
+            role: 'Spaces By MTC Customer',
+            feedback: "I wanted my living room to reflect my personality, but I couldn't find the right furniture anywhere. 'Spaces by MTC' took the time to understand my style and crafted custom pieces that fit perfectly. The craftsmanship and attention to detail are simply outstanding. My home feels more 'me' than ever before!",
+            rating: 4
         },
         {
-          name: 'Marin',
-          role: 'Swish Living Customer',
-          feedback: 'I just love their design for all stunning details. You must know what can you do for a project before taking it, but with swish living, the sky is the limit.',
-          rating: 3
+            name: 'Neha K., Gurgaon',
+            role: 'Spaces By MTC Customer',
+            feedback: "When we expanded our business, we needed a workspace that was both modern and inspiring. 'Spaces by MTC' transformed our vision into reality. Their design for our new office is sleek, professional, and fosters creativity. It's been a game-changer for our team's productivity.",
+            rating: 5
         },
         {
-          name: 'Akthar',
-          role: 'Swish Living Customer',
-          feedback: 'I just love their design for all stunning details. You must know what can you do for a project before taking it, but with swish living, the sky is the limit.',
-          rating: 3
+            name: 'Meera L., Delhi',
+            role: 'Spaces By MTC Customer',
+            feedback: "Moving into a new apartment, I wanted it to feel luxurious and comfortable at the same time. 'Spaces by MTC' exceeded my expectations. They turned my empty rooms into a chic, cozy haven that I look forward to coming home to every day. The whole experience was smooth and stress-free.",
+            rating: 5
+        },
+        {
+            name: 'Rohit P., Hyderabad',
+            role: 'Spaces By MTC Customer',
+            feedback: "As a retail store owner, I wanted a space that would captivate customers the moment they walked in. 'Spaces by MTC' created a layout that not only maximizes our display area but also provides a seamless shopping experience. Sales have definitely seen a boost since the redesign!",
+            rating: 5
+        },
+        {
+            name: 'Vikram R., Bangalore',
+            role: 'Spaces By MTC Customer',
+            feedback: "Our office needed a refresh, but we wanted something unique. 'Spaces by MTC' delivered exactly that. The custom furniture they designed for our workspace not only looks incredible but also enhances functionality. We've received so many compliments from clients and employees alike.",
+            rating: 4
+        },
+        {
+            name: 'Ravi & Anjali D., Pune',
+            role: 'Spaces By MTC Customer',
+            feedback: "With two young kids, our home needed to be functional but also stylish. 'Spaces by MTC' understood our needs perfectly. They designed spaces that are both kid-friendly and elegant, making our home the perfect blend of fun and sophistication. We couldn't be happier!",
+            rating: 5
         },
     ];
 
-    const testimonialsRef = useRef<HTMLDivElement | null>(null);
-    const [isVisible, setIsVisible] = useState(false);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                if (entries[0].isIntersecting) {
-                    setIsVisible(true);
-                    observer.unobserve(testimonialsRef.current!); // Stop observing once it's in view
-                }
-            },
-            { threshold: 0.1 } // Trigger when 10% of the section is in view
-        );
-
-        if (testimonialsRef.current) {
-            observer.observe(testimonialsRef.current);
-        }
-
-        return () => {
-            if (testimonialsRef.current) {
-                observer.unobserve(testimonialsRef.current);
-            }
-        };
-    }, []);
-
     return (
-        <section id='testimonials' className="relative h-auto flex flex-col items-center justify-center py-16" ref={testimonialsRef}>
+        <section id='testimonials' className="relative h-auto flex flex-col items-center justify-center py-16">
             <div className="absolute inset-0 bg-[url('/images/client.jpg')] bg-cover bg-center filter brightness-50"></div>
 
             {/* Title and description */}
             <div className="relative text-center p-10">
-                <h1
-                    className={`text-3xl text-white p-10 md:text-6xl transition-opacity duration-1500 ease-in-out ${
-                        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                    }`}
-                >
+                <h1 className="text-3xl text-white p-10 md:text-6xl transition-opacity duration-[1500ms] ease-in-out opacity-100 translate-y-0">
                     Client Testimonials
                 </h1>
-                <p
-                    className={`text-md text-white md:text-xl mb-10 transition-opacity duration-1500 ease-in-out delay-500 ${
-                        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                    }`}
-                >
+                <p className="text-md text-white md:text-xl mb-10 transition-opacity duration-[1500ms] ease-in-out delay-500 opacity-100 translate-y-0">
                     Our clients love the spaces we’ve helped create, be it residential or commercial. Here’s what they have to say about working with us.
                 </p>
             </div>
 
-            <div className={styles.testimonialsContainer}>
-                <div className={styles.testimonialsTrack}>
-                    {testimonials.concat(testimonials).map((testimonial, index) => (
-                        <div className={styles.testimonialCard} key={index}>
-                            <h3>{testimonial.name}</h3>
-                            <p>{testimonial.role}</p>
-                            <div className={styles.iconPlaceholder}></div>
-                            <p>{testimonial.feedback}</p>
-                            <div className={styles.rating}>
-                              {'★'.repeat(testimonial.rating)}
-                              {'☆'.repeat(5 - testimonial.rating)}
+            <div className="relative w-full overflow-hidden">
+                <div className="flex gap-4 animate-marquee">
+                    {testimonials.map((testimonial, index) => (
+                        <div
+                            key={index}
+                            className="bg-white rounded-lg p-6 w-72 md:w-96 shadow-md text-center flex-shrink-0 hover:scale-105 transition-transform duration-300 ease-in-out"
+                        >
+                            <h3 className="font-bold">{testimonial.name}</h3>
+                            <p className="text-gray-500">{testimonial.role}</p>
+                            <div className="w-12 h-12 bg-gray-200 rounded-full mx-auto my-4"></div>
+                            <p className="text-gray-600">{testimonial.feedback}</p>
+                            <div className="text-yellow-400 text-xl mt-4">
+                                {'★'.repeat(testimonial.rating)}
+                                {'☆'.repeat(5 - testimonial.rating)}
+                            </div>
+                        </div>
+                    ))}
+                    {testimonials.map((testimonial, index) => (
+                        <div
+                            key={`clone-${index}`}
+                            className="bg-white rounded-lg p-6 w-72 md:w-96 shadow-md text-center flex-shrink-0 hover:scale-105 transition-transform duration-300 ease-in-out"
+                        >
+                            <h3 className="font-bold">{testimonial.name}</h3>
+                            <p className="text-gray-500">{testimonial.role}</p>
+                            <div className="w-12 h-12 bg-gray-200 rounded-full mx-auto my-4"></div>
+                            <p className="text-gray-600">{testimonial.feedback}</p>
+                            <div className="text-yellow-400 text-xl mt-4">
+                                {'★'.repeat(testimonial.rating)}
+                                {'☆'.repeat(5 - testimonial.rating)}
                             </div>
                         </div>
                     ))}

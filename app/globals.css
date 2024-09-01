@@ -8,19 +8,63 @@ html{
 }
 
 @keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+  
+
+  @keyframes marquee {
     0% {
-      opacity: 0;
-      transform: translateX(-20px);
+      transform: translateX(0%);
     }
     100% {
-      opacity: 1;
-      transform: translateX(0);
+      transform: translateX(-100%);
     }
   }
   
-  .animate-fadeIn {
-    animation: fadeIn 1s ease-in-out;
+  .animate-marquee {
+    animation: marquee 20s linear infinite;
   }
   
+  
+  @media (max-width: 640px) {
+    .animate-marquee {
+      animation-duration: 40s;
+    }
+  }
 
+  @layer utilities {
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+  
+    .animate-typing-title {
+      animation: typing 2s steps(30, end) forwards;
+    }
+  
+    .animate-typing-description {
+      animation: typing 3s steps(40, end) forwards;
+    }
+  }
 
+  @keyframes flash {
+    0% {
+      filter: brightness(3);
+    }
+    100% {
+      filter: brightness(1);
+    }
+  }
+  
+  .animate-flash {
+    animation: flash 0.7s ease-in-out forwards;
+  }

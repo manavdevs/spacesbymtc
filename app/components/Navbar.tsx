@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { RxHamburgerMenu } from 'react-icons/rx';
-import { FaInstagram, FaLinkedin } from 'react-icons/fa'
-import { FaSquareFacebook, FaXTwitter } from 'react-icons/fa6'
+import { FaInstagram, FaLinkedin } from 'react-icons/fa';
+import { FaSquareFacebook, FaXTwitter } from 'react-icons/fa6';
 
 const Navbar = () => {
     const [toggleMenu, setToggleMenu] = useState(false);
@@ -17,17 +17,18 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className="sticky top-0 flex justify-between items-center w-full p-5 bg-white bg-opacity-30 backdrop-blur-md shadow-lg z-20">
+            <nav className="fixed top-0 left-0 w-full flex justify-between items-center p-5 bg-white bg-opacity-30 backdrop-blur-md shadow-lg z-20">
                 {/* Logo with controlled size */}
                 <div className='text-white'>
-                    <img src="/images/logonobg.png" alt="logo" className=" h-10 w-auto" />
+                    <img src="/images/logonobg.png" alt="logo" className="h-10 w-auto" />
                 </div>
 
                 <div className='flex items-center'>
                     <ul className='hidden md:flex gap-5 text-white'>
                         <li><a href="#home">Home</a></li>
                         <li><a href="#offerings">Offerings</a></li>
-                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#portfolio">Why Us</a></li>
+                        <li><a href="#">Portfolio</a></li>
                         <li><a href="#testimonials">Testimonials</a></li>
                     </ul>
                     <div className='md:hidden text-white ml-4'>
@@ -73,7 +74,8 @@ const Navbar = () => {
                     <ul className='flex flex-col gap-5 text-black'>
                         <li><a href="#home">Home</a></li>
                         <li><a href="#offerings">Offerings</a></li>
-                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#portfolio">Why Us</a></li>
+                        <li><a href="#">Portfolio</a></li>
                         <li><a href="#testimonials">Testimonials</a></li>
                     </ul>
                 </div>

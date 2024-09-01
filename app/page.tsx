@@ -6,10 +6,11 @@ import Hero from "./components/Hero";
 import { SignupFormDemo } from "./components/contact";
 import VideoSplashScreen from "./components/VideoSplashScreen";
 import Offerings from "./components/Offerings";
-import Portfolio from "./components/Portfolio";
+import Whyus from "./components/Whyus";
 import Testimonials from "./components/Testimonials";
 import Footer from "./components/Footer";
-
+import Portfolio from "./components/Portfolio";
+import { InfiniteMovingCardsDemo } from "./components/InfiniteMovingCardsDemo";
 const Page = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
@@ -26,9 +27,11 @@ const Page = () => {
           <Navbar />
           <Hero />
           <Offerings />
-          <Portfolio />
+          <Whyus />
+          <Portfolio/>
           <Testimonials />
-          <SignupFormDemo /> {/* The form is now toggled by a floating icon */}
+          <SignupFormDemo /> 
+          <InfiniteMovingCardsDemo/>
           <Footer />
         </div>
       )}
