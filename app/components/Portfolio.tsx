@@ -48,7 +48,7 @@ const Portfolio: React.FC = () => {
     };
 
     return (
-        <section id="portfolio" className="relative flex flex-col lg:flex-row items-center justify-center h-auto min-h-[800px] py-16">
+        <section id="port" className="relative flex flex-col lg:flex-row items-center justify-center h-auto min-h-[800px] py-16">
             <div className="absolute inset-0 bg-[url('/images/livingroom.jpg')] bg-cover bg-center filter brightness-50"></div>
             
             {/* Heading */}

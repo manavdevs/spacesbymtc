@@ -56,7 +56,7 @@ export function SignupFormDemo() {
   return (
     <div onClick={handlePageClick}>
       <button
-        className="fixed bottom-[20px] right-[20px] z-50 p-4 bg-[#94BD20] text-white rounded-full shadow-lg hover:bg-black transition"
+        className="fixed bottom-[20px] right-[10px] z-50 p-4 bg-[#94BD20] text-white rounded-full shadow-lg hover:bg-black transition"
         onClick={toggleForm}
       >
         <FiMessageCircle size={24} />

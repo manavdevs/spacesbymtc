@@ -28,7 +28,7 @@ const Footer = () => {
 
             {/* Address Section */}
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Experience Center</h2>
+              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Our Experience Center</h2>
               <ul className="text-gray-500 dark:text-gray-400 font-medium">
                 <li className="mb-4">
                   <p>Spaces by MTC-1st floor,<br />
@@ -46,7 +46,7 @@ const Footer = () => {
 
             {/* Address Section */}
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Factory</h2>
+              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Our Factory</h2>
               <ul className="text-gray-500 dark:text-gray-400 font-medium">
                 <li className="mb-4">
                   <p>H.N 1-92, Sy.No 50&52,<br />
@@ -73,7 +73,7 @@ const Footer = () => {
             <span className="text-sm text-gray-500 dark:text-gray-300 sm:text-center">© 2024 <a href="https://flowbite.com/">SpacesbyMTC™</a>. All Rights Reserved.
             </span>
             <div className="flex mt-4 sm:justify-center md:mt-0 space-x-5 rtl:space-x-reverse">
-              <ul className='text-white flex space-x-5 text-2xl'>
+              <ul className='text-black flex space-x-5 text-2xl'>
                 <li><a target='_blank' href="https://www.instagram.com/spacesbymtc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw== "><FaInstagram /></a></li>
                 <li><a target='_blank' href="https://www.facebook.com/share/shkeozDiUdRjJzsy/?mibextid=qi2Omg"><FaSquareFacebook /></a></li>
                 <li><a target='_blank' href="https://www.linkedin.com/company/spacesbymtc/"><FaLinkedin /></a></li>
