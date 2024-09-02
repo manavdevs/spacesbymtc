@@ -1,90 +1,128 @@
-import React from 'react'
-import { FaInstagram, FaLinkedin } from 'react-icons/fa'
-import { FaSquareFacebook, FaXTwitter } from 'react-icons/fa6'
+import React from 'react';
+import {
+  FaInstagram,
+  FaLinkedin,
+  FaFacebookSquare,
+  FaTwitter,
+  FaMapMarkerAlt,
+  FaIndustry,
+} from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <>
-      <footer className="bg-[#191919]">
-        <div className="mx-auto w-full max-w-screen-xl">
-          <div className="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4">
-            <div>
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">SpacesbyMTC</h2>
-              <ul className="text-gray-500 dark:text-gray-400 font-medium">
-                <li className="mb-4">
-                  <a href="#home" className=" hover:underline">Home</a>
-                </li>
-                <li className="mb-4">
-                  <a href="#offerings" className="hover:underline">Offerings</a>
-                </li>
-                <li className="mb-4">
-                  <a href="#portfolio" className="hover:underline">Portfolio</a>
-                </li>
-                <li className="mb-4">
-                  <a href="#testimonials" className="hover:underline">Testimonials</a>
-                </li>
-              </ul>
-            </div>
+    <footer className="bg-[#191919] text-white">
+      <div className="max-w-screen-xl mx-auto px-4 py-8">
+        {/* Main Section */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+          {/* Left Section */}
+          <div className="col-span-2">
+            <h2 className="text-4xl font-bold mb-4">Spaces By MTC</h2>
+            <ul className="space-y-2 text-lg font-medium text-gray-300">
+              <li>
+                <a href="#home" className="hover:underline">
+                  Home
+                </a>
+              </li>
+              <li>
+                <a href="#offerings" className="hover:underline">
+                  Offerings
+                </a>
+              </li>
+              <li>
+                <a href="#whysus" className="hover:underline">
+                  Why Us
+                </a>
+              </li>
+              <li>
+                <a href="#portfolio" className="hover:underline">
+                  Portfolio
+                </a>
+              </li>
+              <li>
+                <a href="#testimonials" className="hover:underline">
+                  Testimonials
+                </a>
+              </li>
+            </ul>
 
-            {/* Address Section */}
-            <div>
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Our Experience Center</h2>
-              <ul className="text-gray-500 dark:text-gray-400 font-medium">
-                <li className="mb-4">
-                  <p>Spaces by MTC-1st floor,<br />
-                    Golden Mile Rd,<br />
-                    Kokapet,<br />
-                    Hyderabad,<br />
-                    Telangana 500075
-                  </p>
-                </li>
-              </ul>
-            </div>
-
-
-            
-
-            {/* Address Section */}
-            <div>
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Our Factory</h2>
-              <ul className="text-gray-500 dark:text-gray-400 font-medium">
-                <li className="mb-4">
-                  <p>H.N 1-92, Sy.No 50&52,<br />
-                    Rasheedguda Village,<br />
-                    Shamshabad Mandal,<br />
-                    Rangareddy District,<br />
-                    Hyderabad, Telangana, 501218
-                  </p>
-                </li>
-              </ul>
-            </div>
-
-            {/* Contact Section */}
-            <div>
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Contact</h2>
-              <ul className="text-gray-500 dark:text-gray-400 font-medium">
-                <li className="mb-4">
-                  <a href="mailto:admin@mtc-spaces.com" className="hover:underline">Email: admin@mtc-spaces.com</a>
-                </li>
-              </ul>
+            {/* Social Icons */}
+            <div className="flex justify-start space-x-4 mt-4">
+              <a
+                href="https://www.instagram.com/spacesbymtc"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-2xl hover:text-[#e4405f] transition duration-300"
+              >
+                <FaInstagram />
+              </a>
+              <a
+                href="https://www.facebook.com/share/shkeozDiUdRjJzsy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-2xl hover:text-[#4267B2] transition duration-300"
+              >
+                <FaFacebookSquare />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/spacesbymtc/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-2xl hover:text-[#0077b5] transition duration-300"
+              >
+                <FaLinkedin />
+              </a>
+              <a
+                href="https://x.com/SpacesByMTC"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-2xl hover:text-[#1DA1F2] transition duration-300"
+              >
+                <FaTwitter />
+              </a>
             </div>
           </div>
-          <div className="px-4 py-6 bg-gray-100 dark:bg-gray-700 md:flex md:items-center md:justify-between">
-            <span className="text-sm text-gray-500 dark:text-gray-300 sm:text-center">© 2024 <a href="https://flowbite.com/">SpacesbyMTC™</a>. All Rights Reserved.
-            </span>
-            <div className="flex mt-4 sm:justify-center md:mt-0 space-x-5 rtl:space-x-reverse">
-              <ul className='text-black flex space-x-5 text-2xl'>
-                <li><a target='_blank' href="https://www.instagram.com/spacesbymtc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw== "><FaInstagram /></a></li>
-                <li><a target='_blank' href="https://www.facebook.com/share/shkeozDiUdRjJzsy/?mibextid=qi2Omg"><FaSquareFacebook /></a></li>
-                <li><a target='_blank' href="https://www.linkedin.com/company/spacesbymtc/"><FaLinkedin /></a></li>
-                <li><a target='_blank' href="https://x.com/SpacesByMTC"><FaXTwitter /></a></li>
-              </ul>
+
+          {/* Contact Icons Side by Side, taking up a larger portion */}
+          <div className="flex w-full justify-center">
+            <div className="grid grid-cols-2 gap-4 w-full">
+              {/* Experience Center Icon */}
+              <div className="p-8 md:p-16 bg-[#2d2d2d] rounded-lg shadow-lg shadow-white/10 hover:shadow-white/20 transition duration-300 flex items-center space-x-2">
+                <a
+                  href="https://maps.app.goo.gl/FU7CzaPegKBNzxpZ9"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center"
+                >
+                  <FaMapMarkerAlt className="text-4xl md:text-5xl text-white hover:text-gray-400 transition duration-300 -ml-6" />
+                  <p className="ml-6 text-sm md:text-md">Experience Center</p>
+                </a>
+              </div>
+
+              {/* Factory Icon */}
+              <div className="p-8 md:p-16 bg-[#2d2d2d] rounded-lg shadow-lg shadow-white/10 hover:shadow-white/20 transition duration-300 flex items-center space-x-2">
+                <a
+                  href="https://maps.app.goo.gl/8aYF5cqEqXDDrbJo7"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center"
+                >
+                  <FaIndustry className="text-4xl md:text-5xl text-white hover:text-gray-400 transition duration-300 -ml-6" />
+                  <p className="ml-6 text-sm md:text-md">Factory</p>
+                </a>
+              </div>
             </div>
           </div>
         </div>
-      </footer>
-    </>
-  )
-}
+
+        {/* Copyright Text Centered */}
+        <div className="mt-6 text-center">
+          <span className="text-sm text-gray-500">
+            © 2024 SpacesbyMTC™. All Rights Reserved.
+          </span>
+        </div>
+      </div>
+    </footer>
+  );
+};
 
 export default Footer;
