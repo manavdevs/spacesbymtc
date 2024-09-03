@@ -53,7 +53,7 @@ const Portfolio: React.FC = () => {
             
             {/* Heading */}
             <div className="relative z-10 mb-10 text-center">
-                <h1 className="text-3xl text-white p-10 md:text-6xl">Portfolio of 3D Renders</h1>
+                <h1 className="text-3xl text-white p-10 md:text-6xl">Our Portfolio</h1>
             </div>
 
             {/* Content Wrapper */}
@@ -98,7 +98,7 @@ const Portfolio: React.FC = () => {
                             <img 
                                 src={image} 
                                 alt={`Portfolio ${selectedCategory} ${index}`} 
-                                className="w-full h-full object-cover animate-flash" 
+                                className="w-full h-full object-cover animate-fadeIn" 
                             />
                         </div>
                     ))}

@@ -2,17 +2,23 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { FaLightbulb } from "react-icons/fa";
 
 const Hero = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const [isLightOn, setIsLightOn] = useState(false);
+
+  const toggleLightbulb = () => {
+    setIsLightOn(!isLightOn);
+  };
 
   const slides = [
     { 
       srcSmall: '/images/Carousel1.png', 
       srcLarge: '/images/Carousel1.jpg', 
       href: '#home',
-      title: 'Furniture that Fits Like a Glove',
+      title: 'Crafting Interiors with Character',
       description: 'Tailored designs just for you—perfect fit for your space.',
     },
     { 
@@ -26,8 +32,8 @@ const Hero = () => {
       srcSmall: '/images/Carousel3.png', 
       srcLarge: '/images/Carousel3.jpg', 
       href: '#home',
-      title: 'Floor Your Guests!',
-      description: "Elegant flooring that’s the foundation of your dream space.",
+      title: 'Building Spaces to Connect!',
+      description: "Elegant Designs that’s the foundation of your dream space.",
     },
     { 
       srcSmall: '/images/Carousel4.png', 
@@ -40,7 +46,19 @@ const Hero = () => {
       srcSmall: '/images/Carousel5.png', 
       srcLarge: '/images/Carousel5.jpg', 
       href: '#home',
-      title: 'Let There Be Light Fixtures!',
+      title: (
+        <span>
+          Let There Be L
+          <button
+            type="button"
+            className="inline-flex items-center justify-center text-white  ease-in-out cursor-pointer"
+            onClick={toggleLightbulb}
+          >
+            <FaLightbulb className={`${isLightOn ? "text-yellow-400 transition duration-300" : "text-white transition duration-300"}`} size={30} />
+          </button>
+          ght
+        </span>
+      ),
       description: "Illuminate your space with our perfect lighting designs for any setting.",
     }
   ];
@@ -91,16 +109,10 @@ const Hero = () => {
             {isSmallScreen && (
               <div className="absolute inset-0 flex items-center justify-center text-center z-20 px-4">
                 <div>
-                  <h2
-                    className={`text-2xl font-bold text-white mb-2`}
-                    
-                  >
+                  <h2 className={`text-2xl font-bold text-white mb-2`}>
                     {slide.title}
                   </h2>
-                  <p
-                    className={`text-lg text-white px-4 py-2`}
-                    
-                  >
+                  <p className={`text-lg text-white px-4 py-2`}>
                     {slide.description}
                   </p>
                 </div>
@@ -110,14 +122,10 @@ const Hero = () => {
             {/* Text overlay for large screens */}
             {!isSmallScreen && (
               <div className="absolute left-20 inset-y-0 flex flex-col justify-center text-white z-20 px-4">
-                <h2
-                  className={`text-6xl font-bold mb-4`}
-                >
+                <h2 className={`text-6xl font-bold mb-4`}>
                   {slide.title}
                 </h2>
-                <p
-                  className={`text-2xl`}
-                >
+                <p className={`text-2xl`}>
                   {slide.description}
                 </p>
               </div>
@@ -136,7 +144,7 @@ const Hero = () => {
       </button>
       <button
         type="button"
-        className="absolute bottom-16 right-[100px] lg:right-[200px] z-10 flex items-center justify-center h-10 w-10 text-white hover:text-amber-400 lg:text-white transition-all cursor-pointer"
+        className="absolute bottom-16 right-[100px] lg:right-[200px] z-10 flex items-center justify-center h-10 w-10 text-white hover:text-amber-400 lg:text-white transition-all  cursor-pointer"
         onClick={goToNextSlide}
       >
         <span className="text-6xl font-light">&#x2192;</span>

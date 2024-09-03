@@ -28,7 +28,6 @@ const Page = () => {
           <Hero />
           <Offerings />
           <Whyus />
-          <Portfolio/>
           <Testimonials />
           <SignupFormDemo /> 
           <InfiniteMovingCardsDemo/>

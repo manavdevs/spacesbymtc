@@ -32,6 +32,33 @@ const Offerings: React.FC = () => {
         setFlippedIndex(index === flippedIndex ? null : index);
     };
 
+    const cards = [
+        { 
+            title: 'Residential Spaces', 
+            image: '/images/residential.jpg', 
+            description: 'We specialize in designing stylish and functional living spaces, from luxurious villas and modern flats to cozy independent houses.',
+            path: '/residential'
+        },
+        { 
+            title: 'Commercial Spaces', 
+            image: '/images/commercial.jpg', 
+            description: 'Enhance your workplace with our expert commercial design solutions. From ergonomic office spaces to tailored furniture.',
+            path: '/commercial'
+        },
+        { 
+            title: 'Smart Home Solutions', 
+            image: '/images/smart-home.jpg', 
+            description: 'Transform your home with our cutting-edge smart technologies. We integrate innovative systems that make everyday living more convenient, efficient, and secure.',
+            path: '/smarthome'
+        },
+        { 
+            title: 'Bespoke Furniture', 
+            image: '/images/bespoke-furniture.jpg', 
+            description: 'Our customized furniture solutions are tailored to fit your unique style and needs. We focus on high-quality craftsmanship to deliver pieces that elevate your space and bring your vision to life.',
+            path: '/bespoke'
+        }
+    ];
+
     return (
         <section id='offerings' className="relative h-auto flex flex-col items-center justify-center py-16" ref={offeringsRef}>
             <div className="absolute inset-0 bg-[url('/images/offerings.jpg')] bg-cover bg-center filter brightness-50"></div>
@@ -49,28 +76,7 @@ const Offerings: React.FC = () => {
 
             {/* Cards with Flip Trigger */}
             <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full px-10">
-                {[
-                    { 
-                        title: 'Residential Spaces', 
-                        image: '/images/residential.jpg', 
-                        description: 'We specialize in designing stylish and functional living spaces, from luxurious villas and modern flats to cozy independent houses.' 
-                    },
-                    { 
-                        title: 'Commercial Spaces', 
-                        image: '/images/commercial.jpg', 
-                        description: 'Enhance your workplace with our expert commercial design solutions. From ergonomic office spaces to tailored furniture.' 
-                    },
-                    { 
-                        title: 'Smart Home Solutions', 
-                        image: '/images/smart-home.jpg', 
-                        description: 'Transform your home with our cutting-edge smart technologies. We integrate innovative systems that make everyday living more convenient, efficient, and secure.' 
-                    },
-                    { 
-                        title: 'Bespoke Furniture', 
-                        image: '/images/bespoke-furniture.jpg', 
-                        description: 'Our customized furniture solutions are tailored to fit your unique style and needs. We focus on high-quality craftsmanship to deliver pieces that elevate your space and bring your vision to life.' 
-                    }
-                ].map((card, index) => (
+                {cards.map((card, index) => (
                     <div 
                         key={index} 
                         className={`relative w-full h-72 perspective p-4 transform transition-transform duration-1000 ease-in-out ${
@@ -85,7 +91,7 @@ const Offerings: React.FC = () => {
                                 <h2 className="text-xl text-white">{card.title}</h2>
                                 <button
                                     onClick={() => handleFlip(index)}
-                                    className="mt-3 bg-blue-500 text-white px-4 py-2 rounded-lg w-3/4" 
+                                    className="mt-3 bg-[#98B82C] text-white px-4 py-2 rounded-lg w-3/4" 
                                 >
                                     See More
                                 </button>
@@ -96,9 +102,9 @@ const Offerings: React.FC = () => {
                                 onClick={() => handleFlip(index)} // Flip back on click anywhere on the back
                             >
                                 <p className="text-white text-center mb-5">{card.description}</p>
-                                <a href="/projects">
+                                <a href={card.path}>
                                     <button
-                                        className="bg-blue-500 text-white px-4 py-2 rounded-lg w-full"
+                                        className="bg-[#98B82C] text-white px-4 py-2 rounded-lg w-full"
                                     >
                                         See Projects
                                     </button>
