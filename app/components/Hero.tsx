@@ -54,7 +54,7 @@ const Hero = () => {
             className="inline-flex items-center justify-center text-white  ease-in-out cursor-pointer"
             onClick={toggleLightbulb}
           >
-            <FaLightbulb className={`${isLightOn ? "text-yellow-400 transition duration-300" : "text-white transition duration-300"}`} size={30} />
+            <FaLightbulb className={`size-5 md:size-10 ${isLightOn ? "text-yellow-400  transition duration-300" : "text-white transition duration-300"}`} size={30} />
           </button>
           ght
         </span>

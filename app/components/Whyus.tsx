@@ -11,33 +11,41 @@ const offeringsData: Offering[] = [
     {
         id: 1,
         title: "Meet The Designer",
-        description: `We begin by understanding your requirements. This involves defining the scope of work, visiting the site and experience centers, providing a tentative quotation, and categorizing the customer based on the budget.`,
-        image: "/images/designer.png", // Replace with your image path
+        description: `We begin by understanding your design requirements, which involves defining the scope of work and visiting your site. You'll have the opportunity to explore our experience center, giving you a look and feel of our design acumen. We then provide a quote, tailored to your budget.`,
+        image: "/images/designer.png",
     },
     {
         id: 2,
         title: "Design Finalization",
-        description: `We provide end-to-end interior solutions. You choose your design, we use ADL to build for the target layout, and finalize the design that suits your vision.`,
-        image: "/images/final.png", // Replace with your image path
+        description: `Once you've made your design selection, we provide a final set of 3D visuals and an updated quotation. We then conduct a detailed site validation and obtain your final approval on the design, ensuring everything is perfect before moving forward.`,
+        image: "/images/final.png",
     },
     {
         id: 3,
         title: "Place the Order",
-        description: `You visit the experience centers, and we offer live mock-ups to ensure you trust our quality and process before placing the final order.`,
-        image: "/images/place.png", // Replace with your image path
+        description: `After the final design is approved, we place your order with the factory. You'll receive a detailed project plan before execution begins, and we work diligently to deliver your dream home, just as you envisioned.`,
+        image: "/images/place.png",
     },
 ];
 
 const Whyus = () => {
     const [activeOffering, setActiveOffering] = useState<Offering>(offeringsData[0]);
-    const [animate, setAnimate] = useState(false);
+    const [animationDirection, setAnimationDirection] = useState<'left' | 'right' | ''>('');
 
     const handleClick = (offering: Offering) => {
-        setAnimate(false); // Reset animation
+        const currentIndex = offeringsData.indexOf(activeOffering);
+        const newIndex = offeringsData.indexOf(offering);
+
+        if (newIndex > currentIndex) {
+            setAnimationDirection('right');
+        } else if (newIndex < currentIndex) {
+            setAnimationDirection('left');
+        }
+
         setTimeout(() => {
             setActiveOffering(offering);
-            setAnimate(true); // Reapply animation
-        }, 50); // Small delay to trigger reflow and reapply the animation
+            setAnimationDirection('');
+        }, 300); // Delay to allow the animation to complete
     };
 
     return (
@@ -48,21 +56,24 @@ const Whyus = () => {
             {/* Offerings Content */}
             <div className="relative flex flex-col lg:flex-row items-center justify-between max-w-7xl mx-auto z-10 w-full p-5 lg:space-x-10">
                 {/* Text Section */}
-                <div className="lg:w-1/2 w-full mb-8 lg:mb-0 relative">
-                    <div className={`bg-[#98B82C] p-8 text-white shadow-lg h-[300px] max-h-[300px] flex flex-col justify-center relative z-20 ${animate ? 'animate-fadeIn' : ''}`}>
-                        <h2 className="text-3xl font-bold mb-4">Why SpacesByMTC</h2>
+                <div 
+                    className={`lg:w-1/2 w-full mb-8 lg:mb-0 relative transition-all duration-500 ${animationDirection === 'right' ? 'translate-x-12 opacity-0' : ''} ${animationDirection === 'left' ? '-translate-x-12 opacity-0' : ''} ${!animationDirection ? 'opacity-100' : ''}`}
+                >
+                    <div className="bg-[#98B82C] p-8 text-white shadow-lg h-[300px] max-h-[300px] flex flex-col justify-center relative z-20">
+                        <h2 className="text-3xl font-bold mb-4">Why Spaces By MTC</h2>
                         <p className="text-lg mb-4 overflow-hidden">{activeOffering.description}</p>
-                    </div>
-                    
-                    {/* Image for Large Screens */}
-                    <div className={`hidden lg:block absolute w-[450px] h-[450px] right-[-375px] top-[-100px] z-10 ${animate ? 'animate-fadeIn' : ''}`}>
-                        <img src={activeOffering.image} alt={activeOffering.title} className="w-full h-full object-cover rounded-md shadow-md opacity-80" />
                     </div>
                 </div>
 
-                {/* Image Section for Small Screens */}
-                <div className={`lg:hidden w-full ${animate ? 'animate-fadeIn' : ''}`}>
-                    <img src={activeOffering.image} alt={activeOffering.title} className="w-full h-auto rounded-md shadow-md" />
+                {/* Image Section */}
+                <div 
+                    className={`lg:w-1/2 w-full relative transition-all duration-500 ${animationDirection === 'right' ? 'translate-x-12 opacity-0' : ''} ${animationDirection === 'left' ? '-translate-x-12 opacity-0' : ''} ${!animationDirection ? 'opacity-100' : ''}`}
+                >
+                    <img 
+                        src={activeOffering.image} 
+                        alt={activeOffering.title} 
+                        className="w-full h-auto lg:w-[450px] lg:h-[450px] object-cover rounded-md shadow-md opacity-80" 
+                    />
                 </div>
             </div>
 

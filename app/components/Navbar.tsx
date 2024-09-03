@@ -17,7 +17,7 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className="fixed top-0 left-0 w-full flex justify-between items-center p-5 bg-black bg-opacity-30 backdrop-blur-md shadow-lg z-20">
+            <nav className="fixed top-0 left-0 w-full flex justify-between items-center p-5 bg-white bg-opacity-30 backdrop-blur-md shadow-lg z-20">
                 {/* Logo with controlled size */}
                 <div className='text-white'>
                     <img src="/images/logonobg.png" alt="logo" className="h-10 w-auto" />
@@ -28,7 +28,6 @@ const Navbar = () => {
                         <li><a href="#home">Home</a></li>
                         <li><a href="#offerings">Offerings</a></li>
                         <li><a href="#portfolio">Why Us</a></li>
-                        <li><a href="#port">Portfolio</a></li>
                         <li><a href="#testimonials">Testimonials</a></li>
                     </ul>
                     <div className='md:hidden text-white ml-4'>
@@ -70,12 +69,11 @@ const Navbar = () => {
 
             {/* Mobile Menu */}
             {toggleMenu && (
-                <div className="fixed top-16 left-0 w-full bg-white bg-opacity-90 backdrop-blur-md shadow-lg z-20 p-5 md:hidden animate-fadeInDown">
+                <div className="fixed top-16 left-0 w-full bg-white bg-opacity-90 backdrop-blur-md shadow-lg z-40 p-5 md:hidden animate-fadeInDown">
                     <ul className='flex flex-col gap-5 text-black'>
                         <li><a href="#home">Home</a></li>
                         <li><a href="#offerings">Offerings</a></li>
                         <li><a href="#portfolio">Why Us</a></li>
-                        <li><a href="#port">Portfolio</a></li>
                         <li><a href="#testimonials">Testimonials</a></li>
                     </ul>
                 </div>

@@ -46,9 +46,9 @@ const Offerings: React.FC = () => {
             path: '/commercial'
         },
         { 
-            title: 'Smart Home Solutions', 
+            title: 'Home Automation Solutions', 
             image: '/images/smart-home.jpg', 
-            description: 'Transform your home with our cutting-edge smart technologies. We integrate innovative systems that make everyday living more convenient, efficient, and secure.',
+            description: 'Transform your home with our cutting edge Space automation technologies, We integrate the control of your home to your Fingertips, which makes your every day living more convenient and secure.',
             path: '/smarthome'
         },
         { 
@@ -88,7 +88,7 @@ const Offerings: React.FC = () => {
                             {/* Front of the card (Image and Title) */}
                             <div className={`absolute inset-0 z-10 flex flex-col items-center justify-between bg-white bg-opacity-50 backdrop-blur-md p-5 rounded-lg shadow-lg ${flippedIndex === index ? 'opacity-0 pointer-events-none' : 'opacity-100'} transition-opacity duration-500`}>
                                 <img src={card.image} alt={card.title} className="w-full h-40 object-cover rounded-lg mb-3" />
-                                <h2 className="text-xl text-white">{card.title}</h2>
+                                <h2 className="text-md text-white">{card.title}</h2>
                                 <button
                                     onClick={() => handleFlip(index)}
                                     className="mt-3 bg-[#98B82C] text-white px-4 py-2 rounded-lg w-3/4" 

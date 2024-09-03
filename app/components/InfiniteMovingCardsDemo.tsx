@@ -12,7 +12,7 @@ export function InfiniteMovingCardsDemo() {
         speed="slow"
       />
 
-      <div className="absolute top-2 left-1/2 transform -translate-x-1/2 bg-black text-white py-2 px-4 rounded-full text-md lg:text-lg  z-10">
+      <div className="absolute text-[13px] top-2 left-1/2 transform -translate-x-1/2 bg-black text-white py-4 px-4 rounded-full text-md lg:text-lg  z-10">
         Our Partners in Procurement
       </div>
     </div>
