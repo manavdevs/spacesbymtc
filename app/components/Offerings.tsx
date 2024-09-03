@@ -36,25 +36,25 @@ const Offerings: React.FC = () => {
         { 
             title: 'Residential Spaces', 
             image: '/images/residential.jpg', 
-            description: 'We specialize in designing stylish and functional living spaces, from luxurious villas and modern flats to cozy independent houses.',
+            description: 'We design stylish, functional living spaces, from villas to flats.',
             path: '/residential'
         },
         { 
             title: 'Commercial Spaces', 
             image: '/images/commercial.jpg', 
-            description: 'Enhance your workplace with our expert commercial design solutions. From ergonomic office spaces to tailored furniture.',
+            description: 'Enhance your workplace with ergonomic office design and custom furniture.',
             path: '/commercial'
         },
         { 
             title: 'Home Automation Solutions', 
             image: '/images/smart-home.jpg', 
-            description: 'Transform your home with our cutting edge Space automation technologies, We integrate the control of your home to your Fingertips, which makes your every day living more convenient and secure.',
+            description: 'Control your home with cutting-edge space automation for convenience and security.',
             path: '/smarthome'
         },
         { 
             title: 'Bespoke Furniture', 
             image: '/images/bespoke-furniture.jpg', 
-            description: 'Our customized furniture solutions are tailored to fit your unique style and needs. We focus on high-quality craftsmanship to deliver pieces that elevate your space and bring your vision to life.',
+            description: 'Custom furniture crafted to fit your style, needs, and vision.',
             path: '/bespoke'
         }
     ];
