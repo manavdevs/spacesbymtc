@@ -101,7 +101,7 @@ const Footer = () => {
               {/* Factory Icon */}
               <div className="p-8 md:p-16 bg-[#2d2d2d] rounded-lg shadow-lg shadow-white/10 hover:shadow-white/20 transition duration-300 flex items-center space-x-2">
                 <a
-                  href="https://maps.app.goo.gl/8aYF5cqEqXDDrbJo7"
+                  href="https://maps.app.goo.gl/S9Yb8ePCrnZDDBwj8"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center"
