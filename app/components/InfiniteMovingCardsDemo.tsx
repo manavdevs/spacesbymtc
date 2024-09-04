@@ -30,8 +30,4 @@ const testimonials = [
   { image: '/images/logs8.png' },
   { image: '/images/logs9.png' },
   { image: '/images/logs10.png' },
-  { image: '/images/logs11.png' },
-  { image: '/images/logs12.png' },
-  { image: '/images/logs13.png' },
-  { image: '/images/logs14.png' },
 ];
