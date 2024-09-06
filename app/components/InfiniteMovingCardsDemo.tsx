@@ -9,7 +9,7 @@ export function InfiniteMovingCardsDemo() {
       <InfiniteMovingCards
         items={testimonials}
         direction="right"
-        speed="slow"
+        speed="fast"
       />
 
       <div className="absolute text-[13px] top-2 left-1/2 transform -translate-x-1/2 bg-black text-white py-4 px-4 rounded-full text-md lg:text-lg  z-10">
