@@ -19,28 +19,28 @@ const Hero = () => {
       srcLarge: '/images/Carousel1.jpg', 
       href: '#home',
       title: 'Crafting Interiors with Character',
-      description: 'Tailored designs just for you—perfect fit for your space.',
+      description: 'Transforming Spaces with Personalized Touches and Thoughtful Design.',
     },
     { 
       srcSmall: '/images/Carousel2.png', 
       srcLarge: '/images/Carousel2.jpg', 
       href: '#home',
       title: "Today's Design Tomorrow's Reality",
-      description: 'Your one-stop shop for interiors, furniture, and technology, start to finish.',
+      description: "Bringing Your Vision to Life, One Detail at a Time.",
     },
     { 
       srcSmall: '/images/Carousel3.png', 
       srcLarge: '/images/Carousel3.jpg', 
       href: '#home',
       title: 'Building Spaces to Connect!',
-      description: "Elegant Designs that’s the foundation of your dream space.",
+      description: "Creating Inviting Environments for Work, Play, and Everything in Between.",
     },
     { 
       srcSmall: '/images/Carousel4.png', 
       srcLarge: '/images/Carousel4.jpg', 
       href: '#home',
       title: 'Sofa, So Good!',
-      description: "Comfort meets creativity with our stylish lounging and luxury seating.",
+      description: "Comfort Meets Style in Every Corner of Your Home.",
     },
     { 
       srcSmall: '/images/Carousel5.png', 
@@ -59,7 +59,7 @@ const Hero = () => {
           ght
         </span>
       ),
-      description: "Illuminate your space with our perfect lighting designs for any setting.",
+      description: "Illuminating Spaces with Elegance, Functionality, and Flair.",
     }
   ];
 
