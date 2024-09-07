@@ -1,8 +1,10 @@
+'use client'
 import React from 'react'
+import Commercial from '../components/Commercial'
 
 const page = () => {
   return (
-    <div>Coming Soon</div>
+    <Commercial/>
   )
 }
 

@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
 
-const page = () => {
+const Page = () => {
   return (
-    <div>Coming Soon</div>
-  )
-}
+    <div
+      className="bg-[url('/images/progress.png')] absolute inset-0 bg-cover bg-center filter "></div>
+  );
+};
 
-export default page
+export default Page;

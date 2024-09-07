@@ -1,11 +1,11 @@
 "use client"
 import React from 'react'
-import Portfolio from '../components/Portfolio'
+import Residential from '../components/Residential'
 
 const page = () => {
   return (
     <>
-        <Portfolio/>
+        <Residential/>
     </>
   )
 }
