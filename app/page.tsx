@@ -9,7 +9,6 @@ import Offerings from "./components/Offerings";
 import Whyus from "./components/Whyus";
 import Testimonials from "./components/Testimonials";
 import Footer from "./components/Footer";
-import Portfolio from "./components/Portfolio";
 import { InfiniteMovingCardsDemo } from "./components/InfiniteMovingCardsDemo";
 const Page = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
