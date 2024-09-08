@@ -43,7 +43,7 @@ const offeringsData: Offering[] = [
     loadingStates: [
       { text: 'Step 1: Visit to Experience Centres ' },
       { text: 'Step 2: Live mock-ups to gain trust on quality & process' },
-      { text: 'Step 3: 3D and AR walkthrough ' },
+      { text: 'Step 3: 3 and AR walkthrough ' },
     ],
   },
 ];
@@ -133,11 +133,10 @@ const Whyus = () => {
       {/* Multi-Step Loader */}
       {activeOffering && loading && (
         <Loader
-        loadingStates={activeOffering.loadingStates}
-        loading={loading}
-        duration={2000}
-        className="custom-loader"
-      />
+          loadingStates={activeOffering.loadingStates}
+          loading={loading}
+          duration={2000}
+        />
       )}
 
       {/* Close Loader Button */}
