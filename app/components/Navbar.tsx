@@ -1,3 +1,4 @@
+"use client"
 import React, { useState } from 'react';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { FaInstagram, FaLinkedin, FaFacebookSquare, FaTwitter } from 'react-icons/fa';
@@ -16,7 +17,7 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className="fixed top-0 left-0 w-full flex justify-between items-center p-5 bg-white bg-opacity-30 backdrop-blur-md shadow-lg z-20">
+            <nav className="fixed top-0 left-0 w-full flex justify-between items-center p-5 bg-white bg-opacity-30 backdrop-blur-md shadow-lg z-50">
                 {/* Logo with controlled size */}
                 <div className='text-white'>
                     <img src="/images/logonobg.png" alt="logo" className="h-10 w-auto" />
@@ -25,9 +26,9 @@ const Navbar = () => {
                 <div className='flex items-center'>
                     <ul className='hidden md:flex gap-5 text-white'>
                         <li><a href="/">Home</a></li>
-                        <li><a href="#offerings">Offerings</a></li>
-                        <li><a href="#portfolio">Implementation</a></li>
-                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="/#offerings">Offerings</a></li>
+                        <li><a href="/#portfolio">Implementation</a></li>
+                        <li><a href="/#testimonials">Testimonials</a></li>
                         <li><a href="/aboutus">About Us</a></li>
                     </ul>
                     <div className='md:hidden text-white ml-4'>

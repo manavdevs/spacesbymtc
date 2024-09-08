@@ -1,16 +1,19 @@
 
 import React from 'react'
 import  ExpandableCardDemo  from '../components/ExpandableCardDemo'
+import Navbar from '../components/Navbar'
 
 const Page = () => {
   return (
     <>
+    <Navbar/>
       <div className="relative min-h-[800px] pt-16">
         {/* Background Image with Brightness */}
         <div className="absolute inset-0 bg-[url('/images/aboutusimg.jpg')] bg-cover bg-center filter brightness-50 z-10"></div>
 
         {/* Foreground Content */}
-        <div className="relative z-20 w-full h-full text-center px-4">
+
+        <div className="relative z-20 w-full h-full text-center px-4 mt-10">
           {/* Title Section */}
           <div className="mb-8">
             <h1 className="text-white text-3xl lg:text-5xl font-bold mb-4">Meet the Founders</h1>

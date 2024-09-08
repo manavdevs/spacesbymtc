@@ -101,7 +101,7 @@ const Page = () => {
                 key={category}
                 onClick={() => handleCategoryClick(category.toLowerCase() as keyof ImagePaths)}
                 className={`py-2 px-6 bg-white text-black rounded-md hover:bg-gray-300 transition-all ${
-                  activeCategory === category.toLowerCase() ? 'bg-green-400 text-white' : ''
+                  activeCategory === category.toLowerCase() ? 'text-green-400' : 'text-black'
                 }`}
               >
                 {category}
