@@ -16,7 +16,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
           {/* Left Section */}
           <div className="col-span-2">
-            <h2 className="text-4xl font-bold mb-4">Spaces By MTC</h2>
+            <h2 className="text-4xl font-bold mb-4">SpacesByMTC</h2>
             <ul className="space-y-2 text-lg font-medium text-gray-300">
               <li>
                 <a href="#home" className="hover:underline">

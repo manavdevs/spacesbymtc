@@ -75,7 +75,7 @@ const Whyus = () => {
                 >
                     <div className="bg-[#98B82C] p-4 text-white shadow-lg h-auto max-h-[200px] lg:max-h-[300px] flex flex-col justify-center relative z-20">
                         <h2 className="text-xl lg:text-3xl font-bold mb-2 lg:mb-4">
-                            Why Spaces By MTC
+                            Why SpacesByMTC
                         </h2>
                         <p className="text-sm lg:text-lg mb-2 overflow-hidden">
                             {activeOffering.description}

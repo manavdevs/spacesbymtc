@@ -68,3 +68,34 @@ html{
   .animate-flash {
     animation: flash 0.7s ease-in-out forwards;
   }
+
+  @keyframes slideIn {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes slideInOut {
+  0% {
+      transform: translateX(0);
+  }
+  100% {
+      transform: translateX(-33.333%);
+  }
+}
+
+.slide-cards {
+  animation: slideInOut 0.5s ease-in-out;
+}

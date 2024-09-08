@@ -27,8 +27,10 @@ const Navbar = () => {
                     <ul className='hidden md:flex gap-5 text-white'>
                         <li><a href="#home">Home</a></li>
                         <li><a href="#offerings">Offerings</a></li>
-                        <li><a href="#portfolio">Why Us</a></li>
+                        <li><a href="#portfolio">Implementaion</a></li>
                         <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="/aboutus">About Us</a></li>
+
                     </ul>
                     <div className='md:hidden text-white ml-4'>
                         <button onClick={handleToggleMenu}>
@@ -73,8 +75,9 @@ const Navbar = () => {
                     <ul className='flex flex-col gap-5 text-black'>
                         <li><a href="#home">Home</a></li>
                         <li><a href="#offerings">Offerings</a></li>
-                        <li><a href="#portfolio">Why Us</a></li>
+                        <li><a href="#portfolio">Implementaion</a></li>
                         <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="/aboutus">About Us</a></li>
                     </ul>
                 </div>
             )}
