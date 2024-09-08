@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { RxHamburgerMenu } from 'react-icons/rx';
-import { FaInstagram, FaLinkedin } from 'react-icons/fa';
-import { FaSquareFacebook, FaXTwitter } from 'react-icons/fa6';
+import { FaInstagram, FaLinkedin, FaFacebookSquare, FaTwitter } from 'react-icons/fa';
 
 const Navbar = () => {
     const [toggleMenu, setToggleMenu] = useState(false);
@@ -27,10 +26,9 @@ const Navbar = () => {
                     <ul className='hidden md:flex gap-5 text-white'>
                         <li><a href="/">Home</a></li>
                         <li><a href="#offerings">Offerings</a></li>
-                        <li><a href="#portfolio">Implementaion</a></li>
+                        <li><a href="#portfolio">Implementation</a></li>
                         <li><a href="#testimonials">Testimonials</a></li>
                         <li><a href="/aboutus">About Us</a></li>
-
                     </ul>
                     <div className='md:hidden text-white ml-4'>
                         <button onClick={handleToggleMenu}>
@@ -40,9 +38,9 @@ const Navbar = () => {
                 </div>
 
                 {/* Socials Dropdown triggered by click */}
-                <div className='relative hidden md:block '>
+                <div className='relative hidden md:block'>
                     <button
-                        className='text-white cursor-pointer '
+                        className='text-white cursor-pointer'
                         onClick={handleToggleDropdown}
                     >
                         Socials
@@ -51,17 +49,49 @@ const Navbar = () => {
                     {showDropdown && (
                         <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-2 z-20">
                             <ul className='text-black'>
-                                <li className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100">
-                                    <FaSquareFacebook size={20} /> <a href="https://www.facebook.com/share/shkeozDiUdRjJzsy/?mibextid=qi2Omg" target="_blank" rel="noopener noreferrer">Facebook</a>
+                                <li className="flex items-center gap-2 px-4 py-2">
+                                    <a
+                                        href="https://www.facebook.com/share/shkeozDiUdRjJzsy/?mibextid=qi2Omg"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center gap-2 text-black hover:text-blue-800 transition duration-300"
+                                    >
+                                        <FaFacebookSquare size={20} />
+                                        Facebook
+                                    </a>
                                 </li>
-                                <li className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100">
-                                    <FaInstagram size={20} /> <a href="https://www.instagram.com/spacesbymtc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">Instagram</a>
+                                <li className="flex items-center gap-2 px-4 py-2 ">
+                                    <a
+                                        href="https://www.instagram.com/spacesbymtc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center gap-2 text-black hover:text-pink-800 transition duration-300"
+                                    >
+                                        <FaInstagram size={20} />
+                                        Instagram
+                                    </a>
                                 </li>
-                                <li className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100">
-                                    <FaLinkedin size={20} /> <a href="https://www.linkedin.com/company/spacesbymtc/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                                <li className="flex items-center gap-2 px-4 py-2 ">
+                                    <a
+                                        href="https://www.linkedin.com/company/spacesbymtc/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center gap-2 text-black hover:text-blue-900 transition duration-300"
+                                    >
+                                        <FaLinkedin size={20} />
+                                        LinkedIn
+                                    </a>
                                 </li>
-                                <li className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100">
-                                    <FaXTwitter size={20} /> <a href="https://x.com/SpacesByMTC" target="_blank" rel="noopener noreferrer">Twitter</a>
+                                <li className="flex items-center gap-2 px-4 py-2 ">
+                                    <a
+                                        href="https://x.com/SpacesByMTC"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center gap-2 text-black hover:text-blue-600 transition duration-300"
+                                    >
+                                        <FaTwitter size={20} />
+                                        Twitter
+                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -75,7 +105,7 @@ const Navbar = () => {
                     <ul className='flex flex-col gap-5 text-black'>
                         <li><a href="/">Home</a></li>
                         <li><a href="#offerings">Offerings</a></li>
-                        <li><a href="#portfolio">Implementaion</a></li>
+                        <li><a href="#portfolio">Implementation</a></li>
                         <li><a href="#testimonials">Testimonials</a></li>
                         <li><a href="/aboutus">About Us</a></li>
                     </ul>

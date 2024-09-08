@@ -27,10 +27,10 @@ const images: ImagePaths = {
     "/images/Sofas/13.jpg",
     "/images/Sofas/14.jpg",
     "/images/Sofas/15.jpg",
-    "/images/Sofas/16.jpg",
-    "/images/Sofas/17.jpg",
-    "/images/Sofas/18.jpg",
-    "/images/Sofas/19.jpg",
+    // "/images/Sofas/16.JPG",
+    // "/images/Sofas/17.JPG",
+    // "/images/Sofas/18.JPG",
+    // "/images/Sofas/19.JPG",
     "/images/Sofas/20.jpg",
     "/images/Sofas/21.jpg",
   ],
@@ -46,11 +46,11 @@ const images: ImagePaths = {
     "/images/Chairs/9.jpg",
     "/images/Chairs/10.jpg",
     "/images/Chairs/11.jpg",
-    "/images/Chairs/12.jpg",
-    "/images/Chairs/13.jpg",
-    "/images/Chairs/14.jpg",
-    "/images/Chairs/15.jpg",
-    "/images/Chairs/16.jpg",
+    // "/images/Chairs/12.JPG",
+    // "/images/Chairs/13.JPG",
+    // "/images/Chairs/14.JPG",
+    // "/images/Chairs/15.JPG",
+    // "/images/Chairs/16.JPG",
     "/images/Chairs/17.jpg",
     "/images/Chairs/18.jpg",
     "/images/Chairs/19.jpg",
@@ -59,11 +59,11 @@ const images: ImagePaths = {
   ],
   tables: [
     "/images/Tables/1.jpg",
-    "/images/Tables/2.jpg",
-    "/images/Tables/3.jpg",
-    "/images/Tables/4.jpg",
-    "/images/Tables/5.jpg",
-    "/images/Tables/6.jpg",
+    // "/images/Tables/2.JPG",
+    // "/images/Tables/3.JPG",
+    // "/images/Tables/4.JPG",
+    // "/images/Tables/5.JPG",
+    // "/images/Tables/6.JPG",
     "/images/Tables/7.jpg",
     "/images/Tables/8.jpg",
     "/images/Tables/9.jpg",
@@ -101,7 +101,7 @@ const Page = () => {
                 key={category}
                 onClick={() => handleCategoryClick(category.toLowerCase() as keyof ImagePaths)}
                 className={`py-2 px-6 bg-white text-black rounded-md hover:bg-gray-300 transition-all ${
-                  activeCategory === category.toLowerCase() ? 'bg-[#98b82c] text-white' : ''
+                  activeCategory === category.toLowerCase() ? 'bg-green-400 text-white' : ''
                 }`}
               >
                 {category}
