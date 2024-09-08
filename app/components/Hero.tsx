@@ -125,7 +125,7 @@ const Hero = () => {
                 <h2 className={`text-6xl font-bold mb-4`}>
                   {slide.title}
                 </h2>
-                <p className={`text-2xl`}>
+                <p className={`text-2xl mx-2`}>
                   {slide.description}
                 </p>
               </div>

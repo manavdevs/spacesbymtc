@@ -99,3 +99,7 @@ html{
 .slide-cards {
   animation: slideInOut 0.5s ease-in-out;
 }
+
+.custom-loader .loading-text .loading-step {
+  font-size: 1.25rem;
+}

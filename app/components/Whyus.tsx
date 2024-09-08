@@ -133,10 +133,11 @@ const Whyus = () => {
       {/* Multi-Step Loader */}
       {activeOffering && loading && (
         <Loader
-          loadingStates={activeOffering.loadingStates}
-          loading={loading}
-          duration={2000}
-        />
+        loadingStates={activeOffering.loadingStates}
+        loading={loading}
+        duration={2000}
+        className="custom-loader"
+      />
       )}
 
       {/* Close Loader Button */}
