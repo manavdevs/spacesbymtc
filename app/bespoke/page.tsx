@@ -76,7 +76,7 @@ const images: ImagePaths = {
 const categories = ['Sofas', 'Chairs', 'Tables'];
 
 const Page = () => {
-  const [activeCategory, setActiveCategory] = useState<keyof ImagePaths>('sofas'); // Use the keys of ImagePaths for activeCategory
+  const [activeCategory, setActiveCategory] = useState<keyof ImagePaths>('sofas'); 
   const [fadeIn, setFadeIn] = useState(true);
 
   const handleCategoryClick = (category: keyof ImagePaths) => {
@@ -84,7 +84,7 @@ const Page = () => {
     setTimeout(() => {
       setActiveCategory(category);
       setFadeIn(true);
-    }, 300); // Duration of the fade-out before changing category
+    }, 300); 
   };
 
   return (

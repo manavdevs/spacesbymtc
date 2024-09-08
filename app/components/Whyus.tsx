@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from 'react';
 import { MultiStepLoader as Loader } from '../components/ui/multi-step-loader';
 import { IconSquareRoundedX } from '@tabler/icons-react';
@@ -5,7 +7,7 @@ import { IconSquareRoundedX } from '@tabler/icons-react';
 type Offering = {
   id: number;
   title: string;
-  description: string;
+  image: string;
   loadingStates: Array<{ text: string }>;
 };
 
@@ -13,8 +15,7 @@ const offeringsData: Offering[] = [
   {
     id: 1,
     title: 'Meet The Designer',
-    description:
-      "We start by understanding your design requirements through site visits and defining the project scope. You'll also have the chance to explore our experience center to see our design capabilities. Afterward, we provide a quote customized to your budget. Once you make your design selection, we deliver final 3D visuals and an updated quotation, followed by a thorough site validation and your final design approval. After approval, we place the order with the factory and provide a detailed project plan, ensuring that we deliver your dream home as envisioned.",
+    image: '/images/design.jpg',
     loadingStates: [
       { text: 'Step 1: Understand requirements' },
       { text: 'Step 2: Define scope of work ' },
@@ -26,8 +27,7 @@ const offeringsData: Offering[] = [
   {
     id: 2,
     title: 'Design Finalization',
-    description:
-      "We start by understanding your design requirements through site visits and defining the project scope. You'll also have the chance to explore our experience center to see our design capabilities. Afterward, we provide a quote customized to your budget. Once you make your design selection, we deliver final 3D visuals and an updated quotation, followed by a thorough site validation and your final design approval. After approval, we place the order with the factory and provide a detailed project plan, ensuring that we deliver your dream home as envisioned.",
+    image: '/images/final.jpg',
     loadingStates: [
       { text: 'Step 1: End-to-end Interior Solutions' },
       { text: 'Step 2: Choose your Design' },
@@ -38,8 +38,7 @@ const offeringsData: Offering[] = [
   {
     id: 3,
     title: 'Place the Order',
-    description:
-      "We start by understanding your design requirements through site visits and defining the project scope. You'll also have the chance to explore our experience center to see our design capabilities. Afterward, we provide a quote customized to your budget. Once you make your design selection, we deliver final 3D visuals and an updated quotation, followed by a thorough site validation and your final design approval. After approval, we place the order with the factory and provide a detailed project plan, ensuring that we deliver your dream home as envisioned.",
+    image: '/images/order.jpg',
     loadingStates: [
       { text: 'Step 1: Visit to Experience Centres ' },
       { text: 'Step 2: Live mock-ups to gain trust on quality & process' },
@@ -81,7 +80,7 @@ const Whyus = () => {
 
       {/* Offerings Content */}
       <div className="relative flex flex-col lg:flex-row items-center justify-between max-w-7xl mx-auto z-10 w-full p-3 lg:space-x-10">
-        {/* Text Section */}
+        {/* Image Section */}
         <div
           className={`lg:w-1/2 w-full mb-4 lg:mb-0 relative transition-all duration-500 transform ${
             animationDirection === 'right' ? 'translate-x-12 opacity-0' : ''
@@ -90,18 +89,17 @@ const Whyus = () => {
           }`}
         >
           {activeOffering ? (
-            <div className="bg-[#98B82C] p-6 text-white shadow-lg flex flex-col justify-center relative z-20 lg:max-h-[400px]">
-              <h2 className="text-xl lg:text-3xl font-bold mb-4">
-                Why SpacesByMTC
-              </h2>
-              <p className="text-sm lg:text-lg mb-2">
-                {activeOffering.description}
-              </p>
+            <div className="flex justify-center relative z-20 lg:max-h-[400px] w-full h-full overflow-hidden">
+              <img
+                src={activeOffering.image}
+                alt={activeOffering.title}
+                className="object-cover w-full h-full rounded-lg shadow-lg"
+              />
             </div>
           ) : (
             <div className="text-white text-center p-6">
               <h2 className="text-xl lg:text-3xl font-bold mb-4">
-                Implementaion Process at SpacesbyMTC
+                Implementation Process at SpacesbyMTC
               </h2>
             </div>
           )}
