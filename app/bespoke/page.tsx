@@ -2,7 +2,15 @@
 import React, { useState } from 'react';
 import Image from 'next/image'; // Importing Next.js Image component
 
-const images = {
+// Defining the types for the images object
+type ImagePaths = {
+  sofas: string[];
+  chairs: string[];
+  tables: string[];
+};
+
+// Defining the images object with proper types
+const images: ImagePaths = {
   sofas: [
     "/images/sofas/1.jpg",
     "/images/sofas/2.jpg",
@@ -68,10 +76,10 @@ const images = {
 const categories = ['Sofas', 'Chairs', 'Tables'];
 
 const Page = () => {
-  const [activeCategory, setActiveCategory] = useState('sofas');
+  const [activeCategory, setActiveCategory] = useState<keyof ImagePaths>('sofas'); // Use the keys of ImagePaths for activeCategory
   const [fadeIn, setFadeIn] = useState(true);
 
-  const handleCategoryClick = (category: string) => {
+  const handleCategoryClick = (category: keyof ImagePaths) => {
     setFadeIn(false);
     setTimeout(() => {
       setActiveCategory(category);
@@ -91,7 +99,7 @@ const Page = () => {
             {categories.map((category) => (
               <button
                 key={category}
-                onClick={() => handleCategoryClick(category.toLowerCase())}
+                onClick={() => handleCategoryClick(category.toLowerCase() as keyof ImagePaths)}
                 className={`py-2 px-6 bg-white text-black rounded-md hover:bg-gray-300 transition-all ${
                   activeCategory === category.toLowerCase() ? 'bg-[#98b82c] text-white' : ''
                 }`}
@@ -105,13 +113,13 @@ const Page = () => {
         {/* Image Grid */}
         <div className="relative z-10 w-full max-w-7xl p-5">
           <div className={`grid grid-cols-2 sm:grid-cols-3 gap-4 transition-opacity duration-500 ${fadeIn ? 'opacity-100' : 'opacity-0'}`}>
-            {images[activeCategory].map((src, index) => (
+            {images[activeCategory].map((src: string, index: number) => (
               <div key={index} className="relative w-full h-[300px] overflow-hidden rounded-md">
                 <Image
                   src={src}
                   alt={`${activeCategory} ${index + 1}`}
                   fill // Ensures the image fills the container
-                  style={{ objectFit: 'cover' }} // Use `objectFit` in the style prop
+                  style={{ objectFit: 'cover' }} // Ensures the image maintains its aspect ratio and doesn't get cropped
                   className="transition-transform duration-300 hover:scale-105"
                 />
               </div>
