@@ -25,7 +25,7 @@ const Navbar = () => {
 
                 <div className='flex items-center'>
                     <ul className='hidden md:flex gap-5 text-white'>
-                        <li><a href="#home">Home</a></li>
+                        <li><a href="/home">Home</a></li>
                         <li><a href="#offerings">Offerings</a></li>
                         <li><a href="#portfolio">Implementaion</a></li>
                         <li><a href="#testimonials">Testimonials</a></li>
