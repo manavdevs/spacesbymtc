@@ -25,7 +25,7 @@ const Navbar = () => {
 
                 <div className='flex items-center'>
                     <ul className='hidden md:flex gap-5 text-white'>
-                        <li><a href="/home">Home</a></li>
+                        <li><a href="/">Home</a></li>
                         <li><a href="#offerings">Offerings</a></li>
                         <li><a href="#portfolio">Implementaion</a></li>
                         <li><a href="#testimonials">Testimonials</a></li>
@@ -73,7 +73,7 @@ const Navbar = () => {
             {toggleMenu && (
                 <div className="fixed top-16 left-0 w-full bg-white bg-opacity-90 backdrop-blur-md shadow-lg z-40 p-5 md:hidden animate-fadeInDown">
                     <ul className='flex flex-col gap-5 text-black'>
-                        <li><a href="#home">Home</a></li>
+                        <li><a href="/">Home</a></li>
                         <li><a href="#offerings">Offerings</a></li>
                         <li><a href="#portfolio">Implementaion</a></li>
                         <li><a href="#testimonials">Testimonials</a></li>
