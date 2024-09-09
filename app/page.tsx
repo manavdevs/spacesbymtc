@@ -10,6 +10,7 @@ import Whyus from "./components/Whyus";
 import Testimonials from "./components/Testimonials";
 import Footer from "./components/Footer";
 import { InfiniteMovingCardsDemo } from "./components/InfiniteMovingCardsDemo";
+import OurFactory from "./components/OurFactory";
 const Page = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
@@ -28,9 +29,11 @@ const Page = () => {
           <Offerings />
           <Whyus />
           <Testimonials />
+          <OurFactory/>
           <SignupFormDemo /> 
           <InfiniteMovingCardsDemo/>
           <Footer />
+
         </div>
       )}
     </>

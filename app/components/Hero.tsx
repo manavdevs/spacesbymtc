@@ -23,10 +23,10 @@ const Hero = () => {
       description: 'Transforming Spaces with Personalized Touches and Thoughtful Design.',
     },
     { 
-      srcSmall: '/images/Carousel2.png', 
+      srcSmall: '/images/Carosuel2.png', 
       srcLarge: '/images/Carousel2.jpg', 
       href: '#home',
-      title: "Today's Design Tomorrow's Reality",
+      title: "Tomorrow's Design Today's  Reality",
       description: "Bringing Your Vision to Life, One Detail at a Time.",
     },
     { 

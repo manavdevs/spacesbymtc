@@ -1,13 +1,14 @@
-"use client"
-import React from 'react'
-import Residential from '../components/Residential'
+import React from 'react';
+import Portfolio from '../components/Residential';
 
-const page = () => {
+
+const Page: React.FC = () => {
   return (
     <>
-        <Residential/>
+      
+      <Portfolio />
     </>
-  )
+  );
 }
 
-export default page
+export default Page;

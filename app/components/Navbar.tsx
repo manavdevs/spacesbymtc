@@ -29,6 +29,8 @@ const Navbar = () => {
                         <li><a href="/#offerings">Offerings</a></li>
                         <li><a href="/#portfolio">Implementation</a></li>
                         <li><a href="/#testimonials">Testimonials</a></li>
+                        <li><a href="/#factory">Our Factory</a></li>
+
                         <li><a href="/aboutus">About Us</a></li>
                     </ul>
                     <div className='md:hidden text-white ml-4'>
@@ -108,6 +110,7 @@ const Navbar = () => {
                         <li><a href="#offerings">Offerings</a></li>
                         <li><a href="#portfolio">Implementation</a></li>
                         <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="/#factory">Our Factory</a></li>
                         <li><a href="/aboutus">About Us</a></li>
                     </ul>
                 </div>

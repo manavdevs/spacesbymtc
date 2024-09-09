@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 // Data structure containing image sets for each tile based on the selected category.
 const portfolioData = {
-    BTCT: {
+    BTCity: {
         tiles: [
             { thumb:"/images/comingsoon.png", images: ["/images/comingsoon.png", "/images/comingsoon.png", "/images/comingsoon.png", "/images/comingsoon.png"] },
             { thumb:"/images/comingsoon.png",images: ["/images/comingsoon.png", "/images/comingsoon.png", "/images/comingsoon.png", "/images/comingsoon.png"] },
@@ -16,7 +16,7 @@ const portfolioData = {
 type CategoryKey = keyof typeof portfolioData;
 
 const Commercial: React.FC = () => {
-    const [selectedCategory, setSelectedCategory] = useState<CategoryKey>('BTCT');
+    const [selectedCategory, setSelectedCategory] = useState<CategoryKey>('BTCity');
     const [flashKey, setFlashKey] = useState(0);
     const [expandedImages, setExpandedImages] = useState<string[] | null>(null);
 
@@ -56,11 +56,11 @@ const Commercial: React.FC = () => {
                     <ul className="space-y-4 text-lg font-semibold">
                         <li
                             className={`cursor-pointer transition-colors duration-300 ${
-                                selectedCategory === 'BTCT' ? 'text-[#98B82C]' : 'text-white'
+                                selectedCategory === 'BTCity' ? 'text-[#98B82C]' : 'text-white'
                             }`}
-                            onClick={() => handleCategoryChange('BTCT')}
+                            onClick={() => handleCategoryChange('BTCity')}
                         >
-                            BTCT
+                            BT City
                         </li>
                         
                     </ul>

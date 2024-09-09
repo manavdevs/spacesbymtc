@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from 'react';
-import Image from 'next/image'; // Importing Next.js Image component
+import Image from 'next/image';
+import { motion, AnimatePresence } from 'framer-motion';
 
 // Defining the types for the images object
 type ImagePaths = {
@@ -27,10 +28,6 @@ const images: ImagePaths = {
     "/images/Sofas/13.jpg",
     "/images/Sofas/14.jpg",
     "/images/Sofas/15.jpg",
-    // "/images/Sofas/16.JPG",
-    // "/images/Sofas/17.JPG",
-    // "/images/Sofas/18.JPG",
-    // "/images/Sofas/19.JPG",
     "/images/Sofas/20.jpg",
     "/images/Sofas/21.jpg",
   ],
@@ -46,11 +43,6 @@ const images: ImagePaths = {
     "/images/Chairs/9.jpg",
     "/images/Chairs/10.jpg",
     "/images/Chairs/11.jpg",
-    // "/images/Chairs/12.JPG",
-    // "/images/Chairs/13.JPG",
-    // "/images/Chairs/14.JPG",
-    // "/images/Chairs/15.JPG",
-    // "/images/Chairs/16.JPG",
     "/images/Chairs/17.jpg",
     "/images/Chairs/18.jpg",
     "/images/Chairs/19.jpg",
@@ -59,11 +51,6 @@ const images: ImagePaths = {
   ],
   tables: [
     "/images/Tables/1.jpg",
-    // "/images/Tables/2.JPG",
-    // "/images/Tables/3.JPG",
-    // "/images/Tables/4.JPG",
-    // "/images/Tables/5.JPG",
-    // "/images/Tables/6.JPG",
     "/images/Tables/7.jpg",
     "/images/Tables/8.jpg",
     "/images/Tables/9.jpg",
@@ -76,15 +63,24 @@ const images: ImagePaths = {
 const categories = ['Sofas', 'Chairs', 'Tables'];
 
 const Page = () => {
-  const [activeCategory, setActiveCategory] = useState<keyof ImagePaths>('sofas'); 
+  const [activeCategory, setActiveCategory] = useState<keyof ImagePaths>('sofas');
   const [fadeIn, setFadeIn] = useState(true);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null); // Manage selected image state
 
   const handleCategoryClick = (category: keyof ImagePaths) => {
     setFadeIn(false);
     setTimeout(() => {
       setActiveCategory(category);
       setFadeIn(true);
-    }, 300); 
+    }, 300);
+  };
+
+  const handleImageClick = (src: string) => {
+    setSelectedImage(src); // Set the selected image for full view
+  };
+
+  const handleClose = () => {
+    setSelectedImage(null); // Close the full view
   };
 
   return (
@@ -94,7 +90,7 @@ const Page = () => {
         <div className="absolute inset-0 bg-[url('/images/furniturebg.jpeg')] bg-cover bg-center filter brightness-50"></div>
 
         {/* Category Buttons */}
-        <div className="relative z-10 w-full max-w-7xl text-center mb-6">
+        <div className="relative z-10 w-full max-w-7xl text-center mb-2 mt-8 ">
           <div className="flex justify-center space-x-4 mb-8">
             {categories.map((category) => (
               <button
@@ -114,7 +110,11 @@ const Page = () => {
         <div className="relative z-10 w-full max-w-7xl p-5">
           <div className={`grid grid-cols-2 sm:grid-cols-3 gap-4 transition-opacity duration-500 ${fadeIn ? 'opacity-100' : 'opacity-0'}`}>
             {images[activeCategory].map((src: string, index: number) => (
-              <div key={index} className="relative w-full h-[300px] overflow-hidden rounded-md">
+              <div
+                key={index}
+                className="relative w-full h-[300px] overflow-hidden rounded-md cursor-pointer"
+                onClick={() => handleImageClick(src)}
+              >
                 <Image
                   src={src}
                   alt={`${activeCategory} ${index + 1}`}
@@ -126,6 +126,36 @@ const Page = () => {
             ))}
           </div>
         </div>
+
+        {/* Full Image View */}
+        <AnimatePresence>
+          {selectedImage && (
+            <motion.div
+              className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <div className="relative max-w-3xl w-full h-auto p-4">
+                <Image
+                  src={selectedImage}
+                  alt="Selected Image"
+                  width={1920}
+                  height={1080}
+                  style={{ objectFit: 'contain' }}
+                  className="w-full h-auto"
+                />
+                {/* Close Button */}
+                <button
+                  className="absolute top-4 right-4 text-white text-2xl font-bold"
+                  onClick={handleClose}
+                >
+                  &#10005;
+                </button>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </section>
     </>
   );

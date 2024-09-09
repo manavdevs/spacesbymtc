@@ -4,7 +4,9 @@ import Commercial from '../components/Commercial'
 
 const page = () => {
   return (
+    <>
     <Commercial/>
+    </>
   )
 }
 

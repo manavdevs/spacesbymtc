@@ -1,36 +1,37 @@
+'use client'
 import React, { useState } from 'react';
 
 // Data structure containing image sets for each tile based on the selected category.
 const portfolioData = {
     flat: {
         tiles: [
-            { title: "Bathroom", thumb:"/images/mainbathroom.png",images: ["/images/bathroom1.jpg", "/images/bathroom2.jpg", "/images/bathroom3.jpg", "/images/bathroom4.jpg"] },
-            { title: "Bedroom", thumb:"/images/mainbedroom.png",images: ["/images/bedroom1.jpg", "/images/bedroom2.jpg", "/images/bedroom3.jpg", "/images/bedroom4.jpg"] },
-            { title: "Dining", thumb:"/images/maindining.png",images: ["/images/dining1.jpg", "/images/dining2.jpg", "/images/hall1.jpg", "/images/hall2.jpg"] },
-            { title: "Kitchen", thumb:"/images/mainkitchen.png",images: ["/images/kitchen1.jpg", "/images/kitchen2.jpg", "/images/kitchen3.jpg", "/images/kitchen4.jpg"] },
+            { title: "Bathroom", thumb:"images/mainbathroom.png",images: ["/images/bathroom1.jpg", "/images/bathroom2.jpg", "/images/bathroom3.jpg", "/images/bathroom4.jpg"] },
+            { title: "Bedroom",thumb:"images/mainbedroom.png",images: ["/images/bedroom1.jpg", "/images/bedroom2.jpg", "/images/bedroom3.jpg", "/images/bedroom4.jpg"] },
+            { title: "Dining",thumb:"images/maindining.png", images: ["/images/dining1.jpg", "/images/dining2.jpg", "/images/hall1.jpg", "/images/hall2.jpg"] },
+            { title: "Kitchen",thumb:"images/mainkitchen.png", images: ["/images/kitchen1.jpg", "/images/kitchen2.jpg", "/images/kitchen3.jpg", "/images/kitchen4.jpg"] },
         ],
     },
     villa: {
-        tiles: [
-            { title: "Bathroom",thumb:"/images/comingsoon.png", images: ["/images/comingsoon.png", "/images/comingsoon.png", "/images/comingsoon.png", "/images/comingsoon.png"] },
-            { title: "Bedroom", thumb:"/images/comingsoon.png",images: ["/images/comingsoon.png", "/images/comingsoon.png", "/images/comingsoon.png", "/images/comingsoon.png"] },
-            { title: "Dining", thumb:"/images/comingsoon.png",images: ["/images/comingsoon.png", "/images/comingsoon.png", "/images/comingsoon.png", "/images/comingsoon.png"] },
-            { title: "Kitchen",thumb:"/images/comingsoon.png", images: ["/images/comingsoon.png", "/images/comingsoon.png", "/images/comingsoon.png", "/images/comingsoon.png"] },
-        ],
+      tiles: [
+        { title: "Bathroom", thumb:"/images/comingsoon.png",images: ["/images/comingsoon.png", "/images/comingsoon.png", "/images/comingsoon.png", "/images/comingsoon.png"] },
+        { title: "Bedroom",thumb:"/images/comingsoon.png",images: ["/images/comingsoon.png", "/images/comingsoon.png", "/images/comingsoon.png", "/images/comingsoon.png"] },
+        { title: "Dining",thumb:"/images/comingsoon.png", images: ["/images/comingsoon.png", "/images/comingsoon.png", "/images/comingsoon.png", "/images/comingsoon.png"] },
+        { title: "Kitchen",thumb:"/images/comingsoon.png", images: ["/images/comingsoon.png", "/images/comingsoon.png", "/images/comingsoon.png", "/images/comingsoon.png"] },
+      ],
     },
     studio: {
-        tiles: [
-            { title: "Bathroom",thumb:"/images/comingsoon.png", images: ["/images/comingsoon.png", "/images/comingsoon.png", "/images/comingsoon.png", "/images/comingsoon.png"] },
-            { title: "Bedroom", thumb:"/images/comingsoon.png",images: ["/images/comingsoon.png", "/images/comingsoon.png", "/images/comingsoon.png", "/images/comingsoon.png"] },
-            { title: "Dining", thumb:"/images/comingsoon.png",images: ["/images/comingsoon.png", "/images/comingsoon.png", "/images/comingsoon.png", "/images/comingsoon.png"] },
-            { title: "Kitchen",thumb:"/images/comingsoon.png", images: ["/images/comingsoon.png", "/images/comingsoon.png", "/images/comingsoon.png", "/images/comingsoon.png"] },
-        ],
+      tiles: [
+        { title: "Bathroom", thumb:"/images/comingsoon.png",images: ["/images/comingsoon.png", "/images/comingsoon.png", "/images/comingsoon.png", "/images/comingsoon.png"] },
+        { title: "Bedroom",thumb:"/images/comingsoon.png",images: ["/images/comingsoon.png", "/images/comingsoon.png", "/images/comingsoon.png", "/images/comingsoon.png"] },
+        { title: "Dining",thumb:"/images/comingsoon.png", images: ["/images/comingsoon.png", "/images/comingsoon.png", "/images/comingsoon.png", "/images/comingsoon.png"] },
+        { title: "Kitchen",thumb:"/images/comingsoon.png", images: ["/images/comingsoon.png", "/images/comingsoon.png", "/images/comingsoon.png", "/images/comingsoon.png"] },
+      ],
     },
 };
 
 type CategoryKey = keyof typeof portfolioData;
 
-const Residential: React.FC = () => {
+const Portfolio: React.FC = () => {
     const [selectedCategory, setSelectedCategory] = useState<CategoryKey>('flat');
     const [flashKey, setFlashKey] = useState(0);
     const [expandedImages, setExpandedImages] = useState<string[] | null>(null);
@@ -53,6 +54,7 @@ const Residential: React.FC = () => {
     };
 
     return (
+      
         <section
             id="port"
             className="relative flex flex-col lg:flex-row items-center justify-center h-auto min-h-[800px] py-16"
@@ -83,7 +85,7 @@ const Residential: React.FC = () => {
                             }`}
                             onClick={() => handleCategoryChange('villa')}
                         >
-                            Bachupalli Villa
+                            Bachupally Villa
                         </li>
                         <li
                             className={`cursor-pointer transition-colors duration-300 ${
@@ -107,12 +109,12 @@ const Residential: React.FC = () => {
                             <img
                                 src={tile.thumb} // Display the first image as a thumbnail for the tile
                                 alt={`${tile.title} Thumbnail`}
-                                className="w-full h-full object-cover transition-transform duration-300 filter brightness-50 group-hover:scale-105"
+                                className="w-full h-full object-cover brightness-50 transition-transform duration-300 group-hover:scale-105"
                             />
                             {/* Black Filter and Overlay Text with Hover Effect */}
                             <div className="absolute inset-0 bg-black bg-opacity-50 transition-opacity duration-300 opacity-0 group-hover:opacity-100"></div>
                             <div className="absolute inset-0 flex items-center justify-center">
-                                <span className="text-4xl text-white font-bold uppercase transition-colors duration-300 group-hover:text-[#98B82C]">
+                                <span className="text-2xl lg:text-4xl text-white font-bold uppercase  transition-colors duration-300 group-hover:text-[#98B82C]">
                                     {tile.title}
                                 </span>
                             </div>
@@ -143,4 +145,4 @@ const Residential: React.FC = () => {
     );
 };
 
-export default Residential;
+export default Portfolio;

@@ -1,5 +1,3 @@
-import React from 'react'
-
 const ExpandableCardDemo = () => {
   const cards = [
     {
@@ -17,28 +15,32 @@ const ExpandableCardDemo = () => {
     {
       id: 3,
       title: 'Lalit Chilukuri',
-      description: 'Co founder / Chief Operations officer',
+      description: 'Co-founder / Chief Operations Officer',
       image: '/images/peoples/lalitchilukuri.png',
     },
     {
       id: 4,
       title: 'Samson Randhawa',
-      description: 'Co Founder/ Chief Business Officer',
-      image: '/images/founder4.jpg',
+      description: 'Co-founder / Chief Business Officer',
+      image: '/images/samson.jpeg',
     },
   ];
 
   return (
-    <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 p-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-5xl mx-auto p-4">
       {cards.map((card) => (
-        <div key={card.id} className="bg-white rounded-lg shadow-lg p-6">
-          <img
-            src={card.image}
-            alt={card.title}
-            className="w-full h-[300px] object-contain rounded-t-lg mb-4"
-          />
-          <h2 className="text-lg font-semibold mb-2">{card.title}</h2>
-          <p className="text-gray-600 text-sm">{card.description}</p>
+        <div key={card.id} className="bg-white rounded-lg shadow-lg overflow-hidden">
+          <div className="relative">
+            <img
+              src={card.image}
+              alt={card.title}
+              className="w-full h-[300px] object-contain mt-6 rounded-md" // Reduced the height from 400px to 300px
+            />
+          </div>
+          <div className="p-2 text-center"> {/* Reduced padding here as well */}
+            <h2 className="text-2xl font-semibold mb-2">{card.title}</h2>
+            <p className="text-gray-600">{card.description}</p>
+          </div>
         </div>
       ))}
     </div>
