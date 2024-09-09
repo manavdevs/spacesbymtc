@@ -62,17 +62,17 @@ const LoaderCore = ({
           transition={{ duration: 0.5 }}
         >
           <div>
-            {index > value && <CheckIcon className="text-black dark:text-white" />}
+            {index > value && <CheckIcon className="text-white" />}
             {index <= value && (
               <CheckFilled
                 className={clsx(
-                  "text-black dark:text-white",
+                  "text-white",
                   value === index && "opacity-100"
                 )}
               />
             )}
           </div>
-          <span className={clsx("text-black dark:text-white", value === index && "opacity-100")}>
+          <span className={clsx("text-white", value === index && "opacity-100")}>
             {loadingState.text}
           </span>
         </motion.div>

@@ -145,7 +145,7 @@ const Whyus = () => {
     if (!activeOffering) return 'lg:top-[67%]';
     switch (activeOffering.id) {
       case 1:
-        return 'lg:top-[67%] lg:left-[60%] top-[80%]';
+        return 'lg:top-[67%] lg:left-[60%] top-[78.5%]';
       case 2:
         return 'lg:top-[63%] lg:left-[60%] top-[77%]';
       case 3:
