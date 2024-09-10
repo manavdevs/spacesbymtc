@@ -6,11 +6,12 @@ import Hero from "./components/Hero";
 import { SignupFormDemo } from "./components/contact";
 import VideoSplashScreen from "./components/VideoSplashScreen";
 import Offerings from "./components/Offerings";
-import Whyus from "./components/Whyus";
+// import Whyus from "./components/Whyus";
 import Testimonials from "./components/Testimonials";
 import Footer from "./components/Footer";
 import { InfiniteMovingCardsDemo } from "./components/InfiniteMovingCardsDemo";
 import OurFactory from "./components/OurFactory";
+import ImplementationMethodologies from "./components/ImplementationMethodologies ";
 const Page = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
@@ -27,7 +28,8 @@ const Page = () => {
           <Navbar />
           <Hero />
           <Offerings />
-          <Whyus />
+          {/* <Whyus /> */}
+          <ImplementationMethodologies/>
           <Testimonials />
           <OurFactory/>
           <SignupFormDemo /> 

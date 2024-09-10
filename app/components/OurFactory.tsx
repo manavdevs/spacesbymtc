@@ -1,14 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const OurFactory = () => {
+  // Array of 12 factory images
   const factoryImages = [
     "/images/factory/1.png",
     "/images/factory/2.png",
     "/images/factory/3.png",
     "/images/factory/4.png",
+    "/images/factory/5.png",
     "/images/factory/6.png",
     "/images/factory/7.png",
+    "/images/factory/8.png",
+    "/images/factory/9.png",
+    "/images/factory/10.png",
+    "/images/factory/11.png",
+    "/images/factory/12.png",
   ];
+
+  // State to track the current index of the image set
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Determine the maximum number of sets of images
+  const imagesPerSet = 6;
+  const totalSets = Math.ceil(factoryImages.length / imagesPerSet);
+
+  // Function to move to the next set of images
+  const handleNext = () => {
+    if (currentIndex < totalSets - 1) {
+      setCurrentIndex(currentIndex + 1);
+    }
+  };
+
+  // Function to move to the previous set of images
+  const handlePrev = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex(currentIndex - 1);
+    }
+  };
+
+  // Get the images for the current set
+  const currentImages = factoryImages.slice(currentIndex * imagesPerSet, (currentIndex + 1) * imagesPerSet);
 
   return (
     <>
@@ -19,24 +50,47 @@ const OurFactory = () => {
         {/* Foreground content */}
         <div className="relative z-10 w-full max-w-6xl p-5 text-center">
           {/* Title */}
-          <h2 className="text-3xl lg:text-4xl  mb-6 text-white">OUR FACTORY</h2>
+          <h2 className="text-3xl lg:text-4xl mb-6 text-white">OUR FACTORY</h2>
 
           {/* Short Introductory Paragraph */}
           <p className="text-white text-lg lg:text-xl mb-8">
             Step inside our state-of-the-art factory where precision meets innovation to create the finest quality products.
           </p>
 
-          {/* Image Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
-            {factoryImages.map((src, index) => (
-              <div key={index} className="relative w-full h-[200px] md:h-[250px] overflow-hidden rounded-lg">
-                <img
-                  src={src}
-                  alt={`Factory Image ${index + 1}`}
-                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                />
-              </div>
-            ))}
+          {/* Image Grid with Arrows */}
+          <div className="relative w-full">
+            {/* Left Arrow */}
+            {currentIndex > 0 && (
+              <button
+                onClick={handlePrev}
+                className="absolute left-[-30px] top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-3 rounded-full hover:bg-gray-700 z-20"
+              >
+                &#8592;
+              </button>
+            )}
+
+            {/* Image Grid */}
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+              {currentImages.map((src, index) => (
+                <div key={index} className="relative w-full h-[200px] md:h-[250px] overflow-hidden rounded-lg">
+                  <img
+                    src={src}
+                    alt={`Factory Image ${index + 1}`}
+                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                  />
+                </div>
+              ))}
+            </div>
+
+            {/* Right Arrow */}
+            {currentIndex < totalSets - 1 && (
+              <button
+                onClick={handleNext}
+                className="absolute right-[-30px] top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-3 rounded-full hover:bg-gray-700 z-20"
+              >
+                &#8594;
+              </button>
+            )}
           </div>
 
           {/* Factory Description */}
