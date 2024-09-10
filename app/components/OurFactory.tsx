@@ -14,7 +14,7 @@ const OurFactory = () => {
     "/images/factory/9.png",
     "/images/factory/10.png",
     "/images/factory/11.png",
-    "/images/factory/12.png",
+    "/images/factory/19.png",
   ];
 
   // State to track the current index of the image set

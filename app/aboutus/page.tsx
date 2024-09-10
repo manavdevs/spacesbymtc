@@ -7,28 +7,34 @@ const Page = () => {
     <>
       <Navbar />
 
-      {/* Our Story Section */}
-      <div className="relative min-h-[500px] pt-24 pb-16 bg-gray-500 px-4 md:px-16">
-        {/* Title */}
-        <div className="text-center mb-8">
-          <h1 className="text-3xl lg:text-4xl font-bold text-white">Our Story</h1>
-        </div>
+      {/* Our Story Section with Background Image */}
+      <div className="relative min-h-[500px] pt-24 pb-16">
+        {/* Background Image with Brightness */}
+        <div className="absolute inset-0 bg-[url('/images/storybg.jpg')] bg-cover bg-center filter brightness-50 z-0"></div>
 
-        {/* Content */}
-        <div className="max-w-4xl mx-auto">
-          <p className="text-white text-lg lg:text-xl leading-loose text-justify">
-            At Spaces by MTC, we create interiors that truly connect with the people who 
-            live and work in them. What started as a passion for design has grown into a
-             leading brand known for transforming spaces into places of beauty and function.
+        {/* Foreground Content */}
+        <div className="relative z-10 px-4 md:px-16">
+          {/* Title */}
+          <div className="text-center mb-8">
+            <h1 className="text-3xl lg:text-4xl font-bold text-white">Our Story</h1>
+          </div>
+
+          {/* Content */}
+          <div className="max-w-4xl mx-auto">
+            <p className="text-white text-lg lg:text-xl leading-loose text-justify">
+              At Spaces by MTC, we create interiors that truly connect with the people who 
+              live and work in them. What started as a passion for design has grown into a
+              leading brand known for transforming spaces into places of beauty and function.
               Our leadership team, led by co-founder Lalit Chilukuri,
-               brings over 15 years of experience, guided by the vision of Chairman Syed Abdul Wahab 
-               and Director Balasubramanyam Muthu. Every project is a collaboration, where we listen,
-                understand, and design spaces that reflect your needs and enhance your daily life.
-          </p>
+              brings over 15 years of experience, guided by the vision of Chairman Syed Abdul Wahab 
+              and Director Balasubramanyam Muthu. Every project is a collaboration, where we listen,
+              understand, and design spaces that reflect your needs and enhance your daily life.
+            </p>
+          </div>
         </div>
       </div>
 
-
+      {/* Meet the Founders Section */}
       <div className="relative min-h-[800px] pt-[90px]">
         {/* Background Image with Brightness */}
         <div className="absolute inset-0 bg-[url('/images/aboutusimg.jpg')] bg-cover bg-center filter brightness-50 z-10"></div>
@@ -50,8 +56,6 @@ const Page = () => {
           <ExpandableCardDemo />
         </div>
       </div>
-
-      
     </>
   );
 };
