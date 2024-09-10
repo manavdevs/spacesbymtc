@@ -19,30 +19,35 @@ const Footer = () => {
             <h2 className="text-4xl font-bold mb-4">SpacesByMTC</h2>
             <ul className="space-y-2 text-lg font-medium text-gray-300">
               <li>
-                <a href="#home" className="hover:underline">
+                <a href="/" className="hover:underline">
                   Home
                 </a>
               </li>
               <li>
-                <a href="#offerings" className="hover:underline">
+                <a href="/#offerings" className="hover:underline">
                   Offerings
                 </a>
               </li>
               <li>
-                <a href="#whysus" className="hover:underline">
-                  Why Us
+                <a href="/#portfolio" className="hover:underline">
+                  Implementation 
                 </a>
               </li>
               <li>
-                <a href="#portfolio" className="hover:underline">
-                  Portfolio
-                </a>
-              </li>
-              <li>
-                <a href="#testimonials" className="hover:underline">
+                <a href="/#testimonials" className="hover:underline">
                   Testimonials
                 </a>
               </li>
+              <li>
+                <a href="/#factory" className="hover:underline">
+                  Our Factory
+                </a>
+              </li>
+              <li>
+                <a href="/aboutus" className="hover:underline">
+                  About Us
+                </a>
+                </li>
             </ul>
 
             {/* Social Icons */}
