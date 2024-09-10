@@ -25,13 +25,13 @@ const ExpandableCardDemo = () => {
       {cards.map((card) => (
         <div
           key={card.id}
-          className="bg-gray-400 rounded-lg shadow-lg overflow-hidden hover:scale-105 transition-all duration-100 ease-in-out lg:w-[300px] sm:w-[180px] lg:h-[400px] sm:h-[220px]" // Reduced size for small screens
+          className="bg-gray-400 rounded-lg shadow-lg overflow-hidden hover:scale-105 transition-all duration-100 ease-in-out lg:w-[250px] sm:w-[180px] lg:h-[400px] sm:h-[220px]" // Reduced size for small screens
         >
           <div className="relative w-full lg:h-[300px] lg:w-[300px] sm:h-[100px]"> 
             <img
               src={card.image}
               alt={card.title}
-              className="w-full h-full object-cover rounded-md" // Ensures the image fills the container properly
+              className="w-full h-full    rounded-md" // Ensures the image fills the container properly
             />
           </div>
           <div className="p-4 text-center flex flex-col justify-center lg:h-[100px] sm:h-[70px]"> {/* Adjusted card height for small screens */}
