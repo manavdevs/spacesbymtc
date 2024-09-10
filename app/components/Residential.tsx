@@ -135,7 +135,7 @@ const Portfolio: React.FC = () => {
                                 key={index}
                                 src={image}
                                 alt={`Expanded Image ${index}`}
-                                className="w-full h-auto rounded-md shadow-lg"
+                                className="w-full h-auto rounded-md shadow-lg hover:scale-105 transition ease-in-out"
                             />
                         ))}
                     </div>
