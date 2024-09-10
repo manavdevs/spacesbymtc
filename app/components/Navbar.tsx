@@ -27,7 +27,7 @@ const Navbar = () => {
                     <ul className='hidden md:flex gap-5 text-white'>
                         <li><a href="/">Home</a></li>
                         <li><a href="/#offerings">Offerings</a></li>
-                        <li><a href="/#portfolio">Implementation</a></li>
+                        <li><a href="/#implementation">Implementation</a></li>
                         <li><a href="/#testimonials">Testimonials</a></li>
                         <li><a href="/#factory">Our Factory</a></li>
 
@@ -108,7 +108,7 @@ const Navbar = () => {
                     <ul className='flex flex-col gap-5 text-black'>
                         <li><a href="/">Home</a></li>
                         <li><a href="#offerings">Offerings</a></li>
-                        <li><a href="#portfolio">Implementation</a></li>
+                        <li><a href="#implementation">Implementation</a></li>
                         <li><a href="#testimonials">Testimonials</a></li>
                         <li><a href="/#factory">Our Factory</a></li>
                         <li><a href="/aboutus">About Us</a></li>

@@ -56,7 +56,7 @@ const ImplementationMethodologies: React.FC = () => {
   }, [selectedCategory]);
 
   return (
-    <section className="relative min-h-[1000px] md:min-h-[800px] flex flex-col items-center justify-start py-10">
+    <section id='implementation' className="relative min-h-[1000px] md:min-h-[800px] flex flex-col items-center justify-start py-10">
       {/* Background Image with Brightness */}
       <div
         className="absolute inset-0 bg-cover bg-center filter brightness-50"

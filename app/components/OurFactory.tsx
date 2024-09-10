@@ -7,7 +7,7 @@ const OurFactory = () => {
     "/images/factory/2.png",
     "/images/factory/3.png",
     "/images/factory/4.png",
-    "/images/factory/5.png",
+    "/images/factory/17.png",
     "/images/factory/6.png",
     "/images/factory/7.png",
     "/images/factory/8.png",
