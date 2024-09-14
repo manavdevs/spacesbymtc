@@ -4,12 +4,27 @@ interface CategorySteps {
   [key: number]: string[];
 }
 
+interface Position {
+  bottom: string;
+  left: string;
+}
+
+interface PositionMapping {
+  [key: number]: {
+    lg: Position;
+    sm: Position;
+  };
+}
+
 const ImplementationMethodologies: React.FC = () => {
   // State to track the currently selected category
   const [selectedCategory, setSelectedCategory] = useState<number>(1);
 
-  // State to manage the current visible point for each category
-  const [currentStep, setCurrentStep] = useState<number>(0);
+  // State to manage which step is highlighted (i.e., white)
+  const [highlightedStep, setHighlightedStep] = useState<number>(-1);
+
+  // State to manage screen size for responsive design
+  const [isLargeScreen, setIsLargeScreen] = useState<boolean | null>(null);
 
   // Mapping categories to their respective images
   const categoryImages: { [key: number]: string } = {
@@ -40,20 +55,66 @@ const ImplementationMethodologies: React.FC = () => {
     ],
   };
 
+  // Custom positions for bullet points for lg and sm screens
+  const positionMapping: PositionMapping = {
+    1: { lg: { bottom: '100px', left: '55%' }, sm: { bottom: '35px', left: '15%' } },
+    2: { lg: { bottom: '150px', left: '55%' }, sm: { bottom: '60px', left: '20%' } },
+    3: { lg: { bottom: '200px', left: '55%' }, sm: { bottom: '90px', left: '20%' } },
+  };
+
   // Function to handle category selection
   const handleCategoryClick = (category: number) => {
     setSelectedCategory(category);
-    setCurrentStep(0); // Reset step when category changes
+    setHighlightedStep(-1); // Reset step when category changes
   };
 
-  // Timer for bullet points scrolling
+  // Timer to highlight steps one by one
   useEffect(() => {
     const stepsLength = categorySteps[selectedCategory].length;
+    let currentStep = -1;
+
     const interval = setInterval(() => {
-      setCurrentStep((prevStep) => (prevStep + 1) % stepsLength);
-    }, 2000); // 2 seconds for each point
+      currentStep += 1;
+      if (currentStep >= stepsLength) {
+        clearInterval(interval); // Stop the interval when the last point is reached
+      } else {
+        setHighlightedStep(currentStep);
+      }
+    }, 1000); // 1 second interval for each point
+
     return () => clearInterval(interval); // Clean up the interval on unmount
   }, [selectedCategory]);
+
+  // Detect screen size to conditionally render styles
+  useEffect(() => {
+    const handleResize = () => {
+      setIsLargeScreen(window.innerWidth >= 1024); // Assuming lg is 1024px and above
+    };
+
+    handleResize(); // Set initial value
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Get custom position for the current category
+  const getCustomPosition = () => {
+    if (!positionMapping[selectedCategory]) return {};
+    return isLargeScreen ? positionMapping[selectedCategory].lg : positionMapping[selectedCategory].sm;
+  };
+
+  // SVG checkmark icon
+  const CheckmarkIcon = () => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-4 w-4 text-white flex-shrink-0"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+    </svg>
+  );
 
   return (
     <section id='implementation' className="relative min-h-[1000px] md:min-h-[800px] flex flex-col items-center justify-start py-10">
@@ -119,23 +180,25 @@ const ImplementationMethodologies: React.FC = () => {
         </div>
       </div>
 
-      {/* Scrolling Bullet Points below the categories */}
-      <div className="absolute bottom-20 lg:bottom-[280px] lg:left-[65%] lg:transform lg:-translate-x-1/2 flex items-center justify-center h-10">
-        <div className="overflow-hidden h-10 w-full max-w-6xl">
+      {/* Bullet Points displayed all at once with custom positions */}
+      <div
+        className="absolute flex flex-col items-center justify-start h-auto space-y-4"
+        style={getCustomPosition()} // Apply custom position
+      >
+        {categorySteps[selectedCategory].map((step, index) => (
           <div
-            className="transition-transform duration-500 ease-in-out"
-            style={{ transform: `translateY(-${currentStep * 100}%)`, height: '100%' }}
+            key={index}
+            className={`text-lg font-medium flex items-center justify-start w-full transition-all ease-in-out duration-500 ${
+              highlightedStep >= index ? 'text-white' : 'text-gray-500'
+            }`}
           >
-            {categorySteps[selectedCategory].map((step, index) => (
-              <div
-                key={index}
-                className="text-white text-center text-lg font-medium h-10 flex items-center justify-center"
-              >
-                {step}
-              </div>
-            ))}
+            {/* Checkmark Icon */}
+            <span className="flex items-center justify-center w-6 h-6 rounded-full bg-green-600 mr-2">
+              <CheckmarkIcon />
+            </span>
+            {step}
           </div>
-        </div>
+        ))}
       </div>
     </section>
   );
