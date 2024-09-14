@@ -2,41 +2,69 @@ const ExpandableCardDemo = () => {
   const cards = [
     {
       id: 1,
-      title: 'Syed Abdul Wahab',
-      description: 'Chairman and Founder',
+      name: 'Syed Abdul Wahab',
+      designation: 'Chairman and Founder',
       image: '/images/peoples/syedabdulwahab.png',
+      companies: [
+        { name: 'MINDSTEC', logo: '/images/companies/mindstec.png' },
+        { name: 'MIANTIC AV', logo: '/images/companies/miantic.png' },
+        { name: 'MTC', logo: '/images/companies/mtc.png' },
+      ],
     },
     {
       id: 2,
-      title: 'Balasubramanyam Muthu',
-      description: 'Managing Director',
+      name: 'Balasubramanyam Muthu',
+      designation: 'Managing Director',
       image: '/images/peoples/balasubramanyammuthu.png',
+      companies: [
+        { name: 'MTC', logo: '/images/companies/mtc.png' },
+      ],
     },
     {
       id: 3,
-      title: 'Lalit Chilukuri',
-      description: 'Co-founder / COO',
+      name: 'Lalit Chilukuri',
+      designation: 'Co-founder / COO',
       image: '/images/peoples/lalitchilukuri.png',
+      companies: [
+        { name: 'Amazon', logo: '/images/companies/amazon.png' },
+        { name: 'Uber', logo: '/images/companies/uber.png' },
+        { name: 'Darwinbox', logo: '/images/companies/darwinbox.png' },
+      ],
     },
   ];
 
   return (
-    <div className="flex flex-col sm:flex-row gap-24 justify-center max-w-5xl mx-auto p-4 ">
+    <div className="flex flex-col sm:flex-row flex-wrap gap-10 justify-center max-w-7xl mx-auto p-4">
       {cards.map((card) => (
         <div
           key={card.id}
-          className="bg-gray-400 rounded-lg shadow-lg overflow-hidden hover:scale-105 transition-all duration-100 ease-in-out lg:w-[250px] sm:w-[180px] lg:h-[400px] sm:h-[220px]" // Reduced size for small screens
+          className="bg-gray-100 rounded-lg shadow-lg overflow-hidden hover:scale-105 transition-all duration-100 ease-in-out w-[250px] h-auto"
         >
-          <div className="relative w-full lg:h-[300px] lg:w-[300px] sm:h-[100px]"> 
+          {/* Image Section */}
+          <div className="relative w-full h-[250px]">
             <img
               src={card.image}
-              alt={card.title}
-              className="w-full h-full    rounded-md" // Ensures the image fills the container properly
+              alt={card.name}
+              className="w-full h-full object-cover rounded-md"
             />
           </div>
-          <div className="p-4 text-center flex flex-col justify-center lg:h-[100px] sm:h-[70px]"> {/* Adjusted card height for small screens */}
-            <h2 className="text-sm sm:text-base lg:text-lg font-semibold mb-2">{card.title}</h2> {/* Smaller text on small screens */}
-            <p className="text-gray-600 text-xs sm:text-sm lg:text-base">{card.description}</p>
+
+          {/* Info Section */}
+          <div className="p-4 text-center">
+            <h2 className="text-lg font-semibold mb-2">{card.name}</h2>
+            <p className="text-gray-600 text-sm mb-4">{card.designation}</p>
+            <div className="flex justify-center gap-4">
+              {card.companies.map((company, index) => (
+                <div key={index} className="flex flex-col items-center">
+                  <img
+                    src={company.logo}
+                    alt={company.name}
+                    className="h-10 w-10 object-contain"
+                  />
+                  <p className="text-xs text-gray-600 mt-1">{company.name}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       ))}
