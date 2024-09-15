@@ -12,6 +12,7 @@ interface Position {
 interface PositionMapping {
   [key: number]: {
     lg: Position;
+    md: Position;
     sm: Position;
   };
 }
@@ -24,7 +25,7 @@ const ImplementationMethodologies: React.FC = () => {
   const [highlightedStep, setHighlightedStep] = useState<number>(-1);
 
   // State to manage screen size for responsive design
-  const [isLargeScreen, setIsLargeScreen] = useState<boolean | null>(null);
+  const [screenSize, setScreenSize] = useState<'sm' | 'md' | 'lg'>('lg');
 
   // Mapping categories to their respective images
   const categoryImages: { [key: number]: string } = {
@@ -55,11 +56,11 @@ const ImplementationMethodologies: React.FC = () => {
     ],
   };
 
-  // Custom positions for bullet points for lg and sm screens
+  // Custom positions for bullet points for lg, md, and sm screens
   const positionMapping: PositionMapping = {
-    1: { lg: { bottom: '100px', left: '55%' }, sm: { bottom: '35px', left: '15%' } },
-    2: { lg: { bottom: '150px', left: '55%' }, sm: { bottom: '60px', left: '20%' } },
-    3: { lg: { bottom: '200px', left: '55%' }, sm: { bottom: '90px', left: '20%' } },
+    1: { lg: { bottom: '100px', left: '55%' }, md: { bottom: '35px', left: '35%' }, sm: { bottom: '35px', left: '15%' } },
+    2: { lg: { bottom: '150px', left: '55%' }, md: { bottom: '50px', left: '35%' }, sm: { bottom: '60px', left: '20%' } },
+    3: { lg: { bottom: '200px', left: '55%' }, md: { bottom: '70px', left: '35%' }, sm: { bottom: '90px', left: '20%' } },
   };
 
   // Function to handle category selection
@@ -88,7 +89,13 @@ const ImplementationMethodologies: React.FC = () => {
   // Detect screen size to conditionally render styles
   useEffect(() => {
     const handleResize = () => {
-      setIsLargeScreen(window.innerWidth >= 1024); // Assuming lg is 1024px and above
+      if (window.innerWidth >= 1024) {
+        setScreenSize('lg');
+      } else if (window.innerWidth >= 768) {
+        setScreenSize('md');
+      } else {
+        setScreenSize('sm');
+      }
     };
 
     handleResize(); // Set initial value
@@ -100,7 +107,7 @@ const ImplementationMethodologies: React.FC = () => {
   // Get custom position for the current category
   const getCustomPosition = () => {
     if (!positionMapping[selectedCategory]) return {};
-    return isLargeScreen ? positionMapping[selectedCategory].lg : positionMapping[selectedCategory].sm;
+    return positionMapping[selectedCategory][screenSize];
   };
 
   // SVG checkmark icon
@@ -133,13 +140,13 @@ const ImplementationMethodologies: React.FC = () => {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 flex flex-col w-full max-w-6xl p-6 justify-center items-center md:flex-row">
+      <div className="relative z-10 flex flex-col w-full max-w-6xl p-1 justify-center items-center lg:flex-row">
         {/* Left: Image for Selected Category */}
-        <div className="flex-1 flex items-center justify-center mb-10 md:mb-0 md:mr-10">
+        <div className={`flex-1 flex items-center justify-center mb-10 md:mb-1 ${screenSize === 'md' ? 'md:mr-5' : 'md:mr-10'}`}>
           <img
             src={categoryImages[selectedCategory]}
             alt="Selected category"
-            className="w-full h-[400px] object-cover rounded-lg shadow-lg"
+            className={`object-cover rounded-lg shadow-lg ${screenSize === 'md' ? 'md:w-3/4 md:h-[300px]' : 'w-full h-[400px]'}`}
           />
         </div>
 
@@ -151,7 +158,7 @@ const ImplementationMethodologies: React.FC = () => {
             className="flex flex-col items-center"
           >
             <span className={`text-lg lg:text-4xl font-bold ${selectedCategory === 1 ? 'text-[#98B82C]' : 'text-white'}`}>01</span>
-            <span className={`text-md lg:text-xl font-semibold mt-2 ${selectedCategory === 1 ? 'text-[#98B82C]' : 'text-white'}`}>
+            <span className={`text-sm lg:text-md lg:text-xl font-semibold mt-2 ${selectedCategory === 1 ? 'text-[#98B82C]' : 'text-white'}`}>
               MEET THE DESIGNER
             </span>
           </button>
@@ -162,7 +169,7 @@ const ImplementationMethodologies: React.FC = () => {
             className="flex flex-col items-center"
           >
             <span className={`text-lg lg:text-4xl font-bold ${selectedCategory === 2 ? 'text-[#98B82C]' : 'text-white'}`}>02</span>
-            <span className={`text-md lg:text-xl font-semibold mt-2 ${selectedCategory === 2 ? 'text-[#98B82C]' : 'text-white'}`}>
+            <span className={`text-sm lg:text-md lg:text-xl font-semibold mt-2 ${selectedCategory === 2 ? 'text-[#98B82C]' : 'text-white'}`}>
               DESIGN FINALIZATION
             </span>
           </button>
@@ -173,7 +180,7 @@ const ImplementationMethodologies: React.FC = () => {
             className="flex flex-col items-center"
           >
             <span className={`text-lg lg:text-4xl font-bold ${selectedCategory === 3 ? 'text-[#98B82C]' : 'text-white'}`}>03</span>
-            <span className={`text-md lg:text-xl font-semibold mt-2 ${selectedCategory === 3 ? 'text-[#98B82C]' : 'text-white'}`}>
+            <span className={`text-sm lg:text-md lg:text-xl font-semibold mt-2 ${selectedCategory === 3 ? 'text-[#98B82C]' : 'text-white'}`}>
               PLACE THE ORDER
             </span>
           </button>
@@ -188,7 +195,7 @@ const ImplementationMethodologies: React.FC = () => {
         {categorySteps[selectedCategory].map((step, index) => (
           <div
             key={index}
-            className={`text-lg font-medium flex items-center justify-start w-full transition-all ease-in-out duration-500 ${
+            className={`text-sm font-medium flex items-center justify-start w-full transition-all ease-in-out duration-500 ${
               highlightedStep >= index ? 'text-white' : 'text-gray-500'
             }`}
           >
@@ -205,3 +212,4 @@ const ImplementationMethodologies: React.FC = () => {
 };
 
 export default ImplementationMethodologies;
+``

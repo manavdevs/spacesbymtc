@@ -29,7 +29,7 @@ const Page = () => {
     <>
       {/* New section with title and description */}
       <div 
-        className="container mx-auto p-20 bg-cover bg-center bg-no-repeat h-[500px] flex flex-col justify-center items-center relative"
+        className=" mx-auto p-20 bg-cover bg-center bg-no-repeat h-[500px] flex flex-col justify-center items-center relative"
         style={{
           backgroundImage: `url('/images/smarthome/mainbg.jpg')`, // Replace with your actual image path
           backgroundSize: 'cover',
@@ -53,7 +53,7 @@ const Page = () => {
         {sections.map((section, index) => (
           <div 
             key={index} 
-            className="container mx-auto p-6 bg-cover bg-center bg-no-repeat shadow-lg relative"
+            className=" mx-auto p-6 bg-cover bg-center bg-no-repeat shadow-lg relative"
             style={{
               backgroundImage: `url(${section.image})`,
               backgroundSize: 'cover',
