@@ -34,7 +34,7 @@ const ExpandableCardDemo = () => {
   ];
 
   return (
-    <div className="flex flex-col sm:flex-row flex-wrap gap-10 justify-center max-w-7xl mx-auto p-4">
+    <div className="flex flex-col sm:flex-row flex-wrap gap-10 justify-center max-w-7xl mx-auto p-10">
       {cards.map((card) => (
         <div
           key={card.id}
@@ -59,7 +59,7 @@ const ExpandableCardDemo = () => {
                   <img
                     src={company.logo}
                     alt={company.name}
-                    className="h-10 w-10 object-contain"
+                    className="h-20 w-20 object-contain"
                   />
                   <p className="text-xs text-gray-600 mt-1">{company.name}</p>
                 </div>
