@@ -4,7 +4,7 @@ const ExpandableCardDemo = () => {
       id: 1,
       name: 'Syed Abdul Wahab',
       designation: 'Chairman and Founder',
-      image: '/images/peoples/2.jpg',
+      image: '/images/peoples/syedabdulwahab.jpg',
       companies: [
         { name: 'MINDSTEC', logo: '/images/companies/mindstec.png' },
         { name: 'MIANTIC AV', logo: '/images/companies/miantic.png' },
