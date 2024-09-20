@@ -1,6 +1,7 @@
 "use client"
 import React from 'react';
 import Link from 'next/link';
+import Navbar from '../components/Navbar';
 
 // Define a list of constants for title, description, and image
 const sections = [
@@ -29,6 +30,7 @@ const sections = [
 const Page = () => {
   return (
     <>
+    <Navbar/>
       {/* New section with title and description */}
       <div 
         className="mx-auto p-20 bg-cover bg-center bg-no-repeat h-[500px] flex flex-col justify-center items-center relative"

@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
+import Navbar from '../components/Navbar';
 
 // Defining the types for the images object
 type ImagePaths = {
@@ -85,12 +86,13 @@ const Page = () => {
 
   return (
     <>
-      <section id="portfolio" className="relative flex flex-col items-center justify-center h-auto min-h-[800px] lg:py-16 py-6">
+    <Navbar/>
+      <section id="portfolio" className="relative flex flex-col items-center justify-center h-auto min-h-[800px] lg:py-16 ">
         {/* Background Image */}
         <div className="absolute inset-0 bg-[url('/images/furniturebg.jpeg')] bg-cover bg-center filter brightness-50"></div>
 
         {/* Category Buttons */}
-        <div className="relative z-10 w-full max-w-7xl text-center mb-2 mt-8 ">
+        <div className="relative z-10 w-full max-w-7xl text-center mb-2 lg:mt-8 mt-24  ">
           <div className="flex justify-center space-x-4 mb-8">
             {categories.map((category) => (
               <button

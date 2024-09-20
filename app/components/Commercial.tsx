@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Navbar from './Navbar';
 
 // Data structure containing image sets for each tile based on the selected category.
 const portfolioData = {
@@ -38,6 +39,8 @@ const Commercial: React.FC = () => {
     };
 
     return (
+        <>
+        <Navbar/>
         <section
             id="port"
             className="relative flex flex-col lg:flex-row items-center justify-center h-auto min-h-[800px] py-16"
@@ -106,6 +109,7 @@ const Commercial: React.FC = () => {
                 </div>
             )}
         </section>
+        </>
     );
 };
 

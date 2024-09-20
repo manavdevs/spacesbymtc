@@ -107,9 +107,9 @@ const Navbar = () => {
                 <div className="fixed top-16 left-0 w-full bg-white bg-opacity-90 backdrop-blur-md shadow-lg z-40 p-5 md:hidden animate-fadeInDown">
                     <ul className='flex flex-col gap-5 text-black'>
                         <li><a href="/">Home</a></li>
-                        <li><a href="#offerings">Offerings</a></li>
-                        <li><a href="#implementation">Implementation</a></li>
-                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="/#offerings">Offerings</a></li>
+                        <li><a href="/#implementation">Implementation</a></li>
+                        <li><a href="/#testimonials">Testimonials</a></li>
                         <li><a href="/#factory">Our Factory</a></li>
                         <li><a href="/aboutus">About Us</a></li>
                     </ul>
