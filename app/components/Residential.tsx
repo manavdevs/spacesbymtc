@@ -126,10 +126,10 @@ const Portfolio: React.FC = () => {
 
       {/* Expanded View in 2x2 grid */}
       {expandedImages && !selectedImage && (
-        <div className="fixed inset-0 z-20 bg-black bg-opacity-80 flex items-center justify-center p-10" onClick={closeExpandedView}>
-          <div className="relative grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
+        <div className="fixed inset-0 z-20 bg-black bg-opacity-80 flex items-center justify-center p-20 md:p-24" onClick={closeExpandedView}>
+          <div className="relative grid grid-cols-1 md:grid-cols-2 gap-4 p- ">
             {expandedImages.map((image, index) => (
-              <div key={index} className="w-full h-auto cursor-pointer group" onClick={() => handleImageClick(image)}>
+              <div key={index} className="w-full h-full cursor-pointer group" onClick={() => handleImageClick(image)}>
                 <img
                   src={image}
                   alt={`Expanded Image ${index}`}
