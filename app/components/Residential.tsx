@@ -14,10 +14,10 @@ const portfolioData = {
   },
   villa: {
     tiles: [
-      { title: 'Bathroom', thumb: '/images/comingsoon.png', images: ['/images/comingsoon.png', '/images/comingsoon.png', '/images/comingsoon.png', '/images/comingsoon.png'] },
-      { title: 'Bedroom', thumb: '/images/comingsoon.png', images: ['/images/comingsoon.png', '/images/comingsoon.png', '/images/comingsoon.png', '/images/comingsoon.png'] },
-      { title: 'Dining', thumb: '/images/comingsoon.png', images: ['/images/comingsoon.png', '/images/comingsoon.png', '/images/comingsoon.png', '/images/comingsoon.png'] },
-      { title: 'Kitchen', thumb: '/images/comingsoon.png', images: ['/images/comingsoon.png', '/images/comingsoon.png', '/images/comingsoon.png', '/images/comingsoon.png'] },
+      { title: 'Bathroom', thumb: '/images/bachu/bathroom1.JPG', images: ['/images/bachu/bathroom1.JPG', '/images/bachu/bathroom2.JPG', '/images/bachu/bathroom3.JPG', '/images/bachu/bathroom4.JPG'] },
+      { title: 'Bedroom', thumb: '/images/bachu/bedroom1.JPG', images: ['/images/bachu/bedroom1.JPG', '/images/bachu/bedroom2.JPG', '/images/bachu/bedroom3.JPG', '/images/bachu/bedroom4.JPG'] },
+      { title: 'Living Room', thumb: '/images/bachu/living1.JPG', images: ['/images/bachu/living1.JPG', '/images/bachu/living2.JPG', '/images/bachu/living3.JPG', '/images/bachu/living4.JPG'] },
+      { title: 'Kitchen', thumb: '/images/bachu/kitchen1.JPG', images: ['/images/bachu/kitchen1.JPG', '/images/bachu/kitchen2.JPG', '/images/bachu/kitchen3.JPG', '/images/bachu/kitchen4.JPG'] },
     ],
   },
   studio: {
@@ -65,7 +65,7 @@ const Portfolio: React.FC = () => {
   return (
     <>
     <Navbar/>
-    <section id="port" className="relative flex flex-col lg:flex-row items-center justify-center h-auto min-h-[800px]  lg:min-h-[1000px] py-16">
+    <section id="port" className="relative flex flex-col lg:flex-row items-center justify-center h-auto min-h-[800px] lg:min-h-[800px] py-16">
       <div className="absolute inset-0 bg-[url('/images/livingroom.jpg')] bg-cover bg-center filter brightness-50"></div>
 
       {/* Heading */}
@@ -100,7 +100,7 @@ const Portfolio: React.FC = () => {
         </div>
 
         {/* Right Side Image Grid */}
-        <div key={flashKey} className="lg:w-3/4 w-full grid grid-cols-2 gap-4">
+        <div key={flashKey} className="lg:w-3/4 w-full grid grid-cols-2 gap-4 p-4">
           {portfolioData[selectedCategory].tiles.map((tile, index) => (
             <div
               key={index}
@@ -108,11 +108,11 @@ const Portfolio: React.FC = () => {
               onClick={() => handleTileClick(tile.images)}
             >
               <img
-                src={tile.thumb} // Display the first image as a thumbnail for the tile
+                src={tile.thumb}
                 alt={`${tile.title} Thumbnail`}
-                className="w-full h-full object-cover brightness-50 transition-transform duration-300 group-hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                style={{ objectFit: 'cover', aspectRatio: '16/9' }} // Ensuring consistent aspect ratio
               />
-              {/* Black Filter and Overlay Text with Hover Effect */}
               <div className="absolute inset-0 bg-black bg-opacity-50 transition-opacity duration-300 opacity-0 group-hover:opacity-100"></div>
               <div className="absolute inset-0 flex items-center justify-center">
                 <span className="text-2xl lg:text-4xl text-white font-bold uppercase transition-colors duration-300 group-hover:text-[#98B82C]">
@@ -126,10 +126,11 @@ const Portfolio: React.FC = () => {
 
       {/* Expanded View in 2x2 grid */}
       {expandedImages && !selectedImage && (
-        <div className="fixed inset-0 z-20 bg-black bg-opacity-80 flex items-center justify-center p-20 md:p-24 lg:p-40" onClick={closeExpandedView}>
-          <div className="relative grid grid-cols-1 md:grid-cols-2 gap-4 lg:p-20 mt-20 ">
+        <div className="fixed inset-0  z-20 bg-black bg-opacity-80 flex items-center justify-center p-20 md:p-24 lg:p-40 " onClick={closeExpandedView}>
+
+          <div className="relative grid grid-cols-1 md:grid-cols-2 gap-4 lg:p-20 mt-20">
             {expandedImages.map((image, index) => (
-              <div key={index} className="w-full h-full cursor-pointer group" onClick={() => handleImageClick(image)}>
+              <div key={index} className="w-full h-auto cursor-pointer group" onClick={() => handleImageClick(image)}>
                 <img
                   src={image}
                   alt={`Expanded Image ${index}`}
@@ -141,10 +142,10 @@ const Portfolio: React.FC = () => {
         </div>
       )}
 
-      {/* Full-size image display */}
+      {/* Full Image View */}
       {selectedImage && (
-        <div className="fixed inset-0 z-30 bg-black bg-opacity-90 flex items-center justify-center p-10" onClick={() => setSelectedImage(null)}>
-          <img src={selectedImage} alt="Selected Full Image" className="w-auto h-auto max-h-full max-w-full rounded-md shadow-lg" />
+        <div className="fixed inset-0 z-30 bg-black bg-opacity-90 flex items-center justify-center p-20" onClick={() => setSelectedImage(null)}>
+          <img src={selectedImage} alt="Full Size" className="w-full max-w-4xl h-auto rounded-md shadow-lg" />
         </div>
       )}
     </section>
