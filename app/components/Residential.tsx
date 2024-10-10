@@ -126,21 +126,20 @@ const Portfolio: React.FC = () => {
 
       {/* Expanded View in 2x2 grid */}
       {expandedImages && !selectedImage && (
-        <div className="fixed inset-0  z-20 bg-black bg-opacity-80 flex items-center justify-center p-20 md:p-24 lg:p-40 " onClick={closeExpandedView}>
-
-          <div className="relative grid grid-cols-1 md:grid-cols-2 gap-4 lg:p-20 mt-20">
-            {expandedImages.map((image, index) => (
-              <div key={index} className="w-full h-auto cursor-pointer group" onClick={() => handleImageClick(image)}>
-                <img
-                  src={image}
-                  alt={`Expanded Image ${index}`}
-                  className="w-full h-auto rounded-md shadow-lg transition-transform ease-in-out group-hover:scale-[102%]"
-                />
-              </div>
-            ))}
-          </div>
+  <div className="fixed inset-0 z-20 bg-black bg-opacity-80 flex items-center justify-center p-20 md:p-24 lg:p-40 " onClick={closeExpandedView}>
+    <div className="relative grid grid-cols-1 md:grid-cols-2 gap-4 lg:p-20 mt-20">
+      {expandedImages.map((image, index) => (
+        <div key={index} className="w-full h-auto cursor-pointer group" onClick={() => handleImageClick(image)}>
+          <img
+            src={image}
+            alt={`Expanded Image ${index}`}
+            className={`w-full h-auto rounded-md shadow-lg transition-transform ease-in-out group-hover:scale-[102%] ${selectedCategory === 'villa' ? 'object-cover aspect-[16/9]' : ''}`} // Add class for villa images
+          />
         </div>
-      )}
+      ))}
+    </div>
+  </div>
+)}
 
       {/* Full Image View */}
       {selectedImage && (
