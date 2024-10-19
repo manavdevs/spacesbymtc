@@ -2,7 +2,7 @@ import React from 'react';
 import Portfolio from '../components/Residential';
 
 
-const Page: React.FC = () => {
+const Page = () => {
   return (
     <>
       
