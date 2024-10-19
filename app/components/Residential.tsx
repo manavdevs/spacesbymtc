@@ -162,6 +162,8 @@ const Portfolio: React.FC = () => {
               </div>
             ))}
           </div>
+
+
         </div>
 
         {/* Full-Screen Image View */}
