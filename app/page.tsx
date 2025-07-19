@@ -6,7 +6,7 @@ import Hero from "./components/Hero";
 import { SignupFormDemo } from "./components/contact";
 import VideoSplashScreen from "./components/VideoSplashScreen";
 import Offerings from "./components/Offerings";
-// import Whyus from "./components/Whyus";
+import Whyus from "./components/Whyus";
 import Testimonials from "./components/Testimonials";
 import Footer from "./components/Footer";
 import { InfiniteMovingCardsDemo } from "./components/InfiniteMovingCardsDemo";
@@ -25,6 +25,7 @@ const Page = () => {
         <VideoSplashScreen onVideoEnd={handleVideoEnd} />
       ) : (
         <div>
+<<<<<<< HEAD
           <Navbar />
           <Hero />
           <Offerings />
@@ -35,6 +36,17 @@ const Page = () => {
           <SignupFormDemo /> 
           <InfiniteMovingCardsDemo/>
           <Footer />
+=======
+        <Navbar />
+        <Hero />
+        <Offerings />
+        <ImplementationMethodologies/>
+        <Testimonials />
+        <OurFactory/>
+        <SignupFormDemo /> 
+        <InfiniteMovingCardsDemo/>
+        <Footer />
+>>>>>>> efe3c3721cec0d3fc9db4dfe400a6b8534882c1e
         </div>
       )}
     </>
