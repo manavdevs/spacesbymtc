@@ -25,18 +25,6 @@ const Page = () => {
         <VideoSplashScreen onVideoEnd={handleVideoEnd} />
       ) : (
         <div>
-<<<<<<< HEAD
-          <Navbar />
-          <Hero />
-          <Offerings />
-          {/* <Whyus /> */}
-          <ImplementationMethodologies/>
-          <Testimonials />
-          <OurFactory/>
-          <SignupFormDemo /> 
-          <InfiniteMovingCardsDemo/>
-          <Footer />
-=======
         <Navbar />
         <Hero />
         <Offerings />
@@ -46,7 +34,6 @@ const Page = () => {
         <SignupFormDemo /> 
         <InfiniteMovingCardsDemo/>
         <Footer />
->>>>>>> efe3c3721cec0d3fc9db4dfe400a6b8534882c1e
         </div>
       )}
     </>
